@@ -1,0 +1,275 @@
+% !TeX program = XeLaTeX or LuaLaTeX
+% !TeX encoding = UTF-8 Unicode
+% Copyright [2021] [Javinator9889]
+
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+
+%     http://www.apache.org/licenses/LICENSE-2.0
+
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+\documentclass[a4paper,oneside,12pt,titlepage,bibliography=totoc]{scrreport}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[greek,english,spanish]{babel}
+% \usepackage[ddmmyyyy]{datetime}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage[xetex]{graphicx}
+\usepackage{csquotes}
+\usepackage{a4wide} %%Smaller margins, more text per page.
+\usepackage{longtable} %%For tables that exceed a page width
+\usepackage{pdflscape} %%Adds PDF sup­port to the land­scape en­vi­ron­ment of pack­age
+\usepackage{caption} %%Pro­vides many ways to cus­tomise the cap­tions in float­ing en­vi­ron­ments like fig­ure and ta­ble
+\usepackage{float} %%Im­proves the in­ter­face for defin­ing float­ing ob­jects such as fig­ures and ta­bles
+\usepackage[tablegrid,nochapter]{vhistory} %%Vhis­tory sim­pli­fies the cre­ation of a his­tory of ver­sions of a doc­u­ment
+\usepackage[nottoc]{tocbibind} %%Au­to­mat­i­cally adds the bib­li­og­ra­phy and/or the in­dex and/or the con­tents, etc., to the Ta­ble of Con­tents list­ing
+\usepackage[toc,page]{appendix} %%The ap­pendix pack­age pro­vides var­i­ous ways of for­mat­ting the ti­tles of ap­pen­dices
+\usepackage{pdfpages} %%This pack­age sim­pli­fies the in­clu­sion of ex­ter­nal multi-page PDF doc­u­ments in LATEX doc­u­ments
+\usepackage[rightcaption]{sidecap} %%De­fines en­vi­ron­ments called SC­fig­ure and SCtable (anal­o­gous to fig­ure and ta­ble) to type­set cap­tions side­ways
+\usepackage[printonlyused]{acronym} %%This pack­age en­sures that all acronyms used in the text are spelled out in full at least once. It also pro­vides an en­vi­ron­ment to build a list of acronyms used
+\usepackage{layout} %%The pack­age de­fines a com­mand \lay­out, which will show a sum­mary of the lay­out of the cur­rent doc­u­ment
+\usepackage{subfig} %%Pro­vides sup­port for the ma­nip­u­la­tion and ref­er­ence of small or ‘sub’ fig­ures and ta­bles within a sin­gle fig­ure or ta­ble en­vi­ron­ment.
+\usepackage[toc]{glossaries} %%The glos­saries pack­age sup­ports acronyms and mul­ti­ple glos­saries, and has pro­vi­sion for op­er­a­tion in sev­eral lan­guages (us­ing the fa­cil­i­ties of ei­ther ba­bel or poly­glos­sia).
+\usepackage[left,pagewise,modulo]{lineno} %%Adds line num­bers to se­lected para­graphs with ref­er­ence pos­si­ble through the LATEX \ref and \pageref cross ref­er­ence mech­a­nism
+\usepackage[colorlinks=false,hidelinks,pdfstartview=FitV,bookmarks=true]{hyperref}%%The hy­per­ref pack­age is used to han­dle cross-ref­er­enc­ing com­mands in LATEX to pro­duce hy­per­text links in the doc­u­ment. 
+\usepackage{metainfo}
+% \usepackage[pagestyles,raggedright]{titlesec}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{ltxtable}
+\usepackage[style=ieee]{biblatex}
+\bibliography{base/TFM.bib}
+% \usepackage[nottoc]{tocbibind}
+\usepackage[official]{eurosym}
+\usepackage{gensymb}
+\usepackage{qrcode}
+\usepackage{numprint}
+\usepackage{mathtools}
+\usepackage[nice]{nicefrac}
+\usepackage[LGR,T1]{fontenc}
+\usepackage[utf8x]{inputenc}   % utf8 is required
+\usepackage{%
+    array, %%An ex­tended im­ple­men­ta­tion of the ar­ray and tab­u­lar en­vi­ron­ments which ex­tends the op­tions for col­umn for­mats, and pro­vides "pro­grammable" for­mat spec­i­fi­ca­tions
+    booktabs, %%The pack­age en­hances the qual­ity of ta­bles in LATEX, pro­vid­ing ex­tra com­mands as well as be­hind-the-scenes op­ti­mi­sa­tion
+    dcolumn, %%
+    enumitem,
+    lastpage,
+    libertine,
+    lipsum,
+    longtable,
+    lscape,
+    mathcomp,
+    microtype,
+    qtree,
+    rotating,
+    scrhack,
+    shortvrb,
+    skmath,	
+    titleps,
+    titling,
+    units,
+    url,
+    wasysym,
+}
+
+\newcommand{\bigO}[1]{%
+  \text{\usefont{OMS}{cmsy}{m}{n}O}\left(#1\right)%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Java --> latex 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmonofont{Fira Code}[
+  Contextuals=Alternate,
+  Ligatures = {Common,Rare}
+]
+\usepackage{letltxmacro}
+\LetLtxMacro\oldttfamily\ttfamily
+\DeclareRobustCommand{\ttfamily}{\oldttfamily\csname ttsize\endcsname}
+\newcommand{\settttsize}[1]{\def\ttsize{#1}}%
+\usepackage{lstfiracode}
+\usepackage{listings}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % Indica el color de fondo; necesita que se añada \usepackage{color} o \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily,        % Fija el tamaño del tipo de letra utilizado para el código
+  breakatwhitespace=false,         % Activarlo para que los saltos automáticos solo se apliquen en los espacios en blanco
+  inputencoding=utf8,
+  breaklines=true,                 % Activa el salto de línea automático
+  captionpos=b,                    % Establece la posición de la leyenda del cuadro de código
+  commentstyle=\color{darkgreen},    % Estilo de los comentarios
+  extendedchars=true,              % Permite utilizar caracteres extendidos no-ASCII; solo funciona para codificaciones de 8-bits; para UTF-8 no funciona. En xelatex necesita estar a true para que funcione.
+  frame=single,	                   % Añade un marco al código
+  keepspaces=true,                 % Mantiene los espacios en el texto. Es útil para mantener la indentación del código(puede necesitar columns=flexible).
+  columns=flexible,
+  keywordstyle=\color{darkorange},       % estilo de las palabras clave
+  numbers=left,                    % Posición de los números de línea (none, left, right).
+  numbersep=5pt,                   % Distancia de los números de línea al código
+  numberstyle=\small\color{gray}, % Estilo para los números de línea
+  rulecolor=\color{black},         % Si no se activa, el color del marco puede cambiar en los saltos de línea entre textos que sea de otro color, por ejemplo, los comentarios, que están en verde en este ejemplo
+  showspaces=false,                % Si se activa, muestra los espacios con guiones bajos; sustituye a 'showstringspaces'
+  showstringspaces=false,          % subraya solamente los espacios que estén en una cadena de esto
+  showtabs=false,                  % muestra las tabulaciones que existan en cadenas de texto con guión bajo
+  stringstyle=\color{darkgreen},     % Estilo de las cadenas de texto
+  style=FiraCodeStyle,
+  identifierstyle=\color{blue},
+  tabsize=4,	                   % Establece el salto de las tabulaciones a 2 espacios
+  title=\lstname,                   % muestra el nombre de los ficheros incluidos al utilizar
+  caption=\lstname,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'{\i}}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?``}}1 {¡}{{!``}}1 {º}{\textdegree}1,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+\lstdefinestyle{C}{%
+  language=C,                 % El lenguaje del código
+  otherkeywords={__attribute__, __interrupt__, config, inline, asm, uint8_t, uint16_t,%
+  uint32_t, uint64_t, time_t, size_t, servo_t, motor_t, Nop,%
+  point_t, angle_t, double64_t, int_fast64_t, bool, true, false, stdbool, stdint,%
+  stdlib, stddef}           % Si se quieren añadir otras palabras clave al lenguaje
+}
+\lstdefinestyle{Python}{%
+  language=Python
+}
+
+\lstdefinestyle{Ada}{%
+  language=Ada
+}
+\lstdefinestyle{bash}{%
+  language=bash,
+  otherkeywords={sudo,chmod,chown,chgrp,ls,mkdir,touch,useradd,groupadd,usermod}
+}
+\lstdefinestyle{R}{%
+  language=R,
+  otherkeywords={0,1,2,3,4,5,6,7,8,9},
+  morekeywords={TRUE,FALSE},
+  deletekeywords={data,frame,length,as,character}
+}
+\usepackage{xcolor}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{darkgreen}{rgb}{0.0, 0.4, 0.0}
+\definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
+% \usepackage{inconsolata}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setlength{\parindent}{0pt}
+\setlength{\parskip}{.5\baselineskip}
+%% Checkmark symbols
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+% Greek letters
+% \newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Input of the metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{base/metadata.tex}
+\input{base/pagetitle.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Creation of the header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\patchcmd{\chapter}{plain}{short}{}{} %$ <-- the header on chapter 1
+% % workaround
+% \makeatletter
+% \appto{\appendices}{\def\Hy@chapapp{Appendix}}
+% \makeatother
+\newpagestyle{long}{%
+	\sethead[\thepage][][\chaptername\ \thechapter:\ \chaptertitle]{\chaptername\ \thechapter:\ \chaptertitle}{}{\thepage}
+	\headrule
+}
+\newpagestyle{short}{%
+	\sethead[\thepage][][]{}{}{\thepage}
+	\headrule
+}
+
+\addto\captionsspanish{%
+  \renewcommand\appendixname{Anexo}
+  \renewcommand\appendixpagename{Anexos}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Creation of page-styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{8pt}
+
+\newcolumntype{s}{>{\hsize=.5\hsize\linewidth=\hsize}X}
+\renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
+% \newcolumntype{b}{>{\hsize=.75\hsize}X}
+\newcommand{\heading}[1]{\multicolumn{1}{c}{#1}}
+% \newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
+% \newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
+\newcolumntype{L}[0]{>{\raggedright\arraybackslash}X}%
+% \newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}%
+\newcolumntype{C}[1]{>{\Centering\hsize=#1\hsize}X}%
+
+% \usepackage[definemenumacros=false]{menukeys}
+
+\DeclareMathOperator{\atantwo}{atan2}
+
+\DeclareMathOperator{\arctantwo}{arctan2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%% Custom listing settings
+\settttsize{\footnotesize}
+\ActivateVerbatimLigatures
+
+%% Use "tabla" instead of "cuadro"
+\renewcommand{\tablename}{Tabla}
+
+%% Include table of contents and history using roman numbering
+\pagenumbering{roman}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\pagestyle{short}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table of contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+\pagestyle{long}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version table insertion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{base/history}
+
+
+\chapter*{Definiciones, siglas, y abreviaturas}
+\input{base/acronyms}
+\addcontentsline{toc}{chapter}{Definiciones, siglas, y abreviaturas}
+
+%% The document itself
+%% And reset the numbering as the document starts here
+\newpage
+\pagenumbering{arabic}
+\input{content/content.tex}
+
+%% Bibliography
+\printbibliography
+
+%% Validation
+\appendix
+\chapter{Validación de requisitos}\label{chap:validation}
+\input{content/appendix/validation.tex}
+\chapter{Diagramas que modelan el sistema}\label{chap:diagrams}
+\input{content/appendix/diagrams.tex}
+
+\end{document}

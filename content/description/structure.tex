@@ -1,0 +1,46 @@
+El desarrollo del sistema \ac{VIMS} es un proceso multidisciplinar en el que se deben
+desarrollar varias áreas de conocimiento. Este proyecto se ha postulado como
+un desarrollo integral de ingeniería y es por eso por lo que está dividido en
+varios bloques que conforman un factor clave en el desarrollo del mismo.
+
+En este proyecto existen diversos bloques diferenciados: un estudio de mercado y de
+las características de los usuarios, un estudio matemático asociado a la lectura de
+valores y adecuación del \textit{hardware}, el proceso de diseño \textit{hardware}
+en sí, el diseño \textit{software} del sistema y el análisis de planificación del mismo.
+
+\begin{itemize}
+  \item El estudio de mercado pretende averiguar y formalizar las necesidades de los
+  conductores y usuarios de la vía. Es la primera aproximación y facilita la
+  delimitación del producto y, sobre todo, ofrecerle al usuario final algo de utilidad
+  y que pueda necesitar.
+  \item El estudio matemático se encarga de investigar la ``traducción'' de los
+  valores recibidos por el vehículo (según los datos asociados al estudio de mercado
+  realizado con anterioridad).
+  \item El diseño \textit{software} modela principalmente cómo se va a estructurar
+  el sistema y cómo debe comportarse ante los distintos eventos que puede recibir.
+  Esta fase conlleva realizar diagramas lógicos y de diseño del sistema en su conjunto.
+  \item El diseño \textit{hardware} conlleva tanto el estudio de los componentes del
+  sistema así como de las restricciones físicas del mismo. Además, en esta sección
+  también se introduce el diseño 3D de la caja que alojará la placa.
+  \item El análisis de planificabilidad complementa el diseño \textit{software}
+  y estudia si el sistema es planificable. En los requisitos no se define \ac{VIMS}
+  como un sistema en tiempo real, pero la cantidad de componentes que contiene y las
+  acciones que tiene que realizar requieren del uso de subrutinas y de una planificación
+  previa para asegurar un correcto funcionamiento del mismo.
+\end{itemize}
+
+Es importante detallar que pese a que el sistema se compone de varios componentes,
+son dos los principales que lo caracterizan:
+
+\begin{enumerate}
+  \item La placa, \ac{VIMS}, que va embebida en los vehículos del sistema. Se encarga
+  de toda la lectura, adaptación y emisión de datos. Además, cuenta con soporte para
+  poder realizar una transmisión de la información a un dispositivo asociado mediante
+  redes \ac{PAN}.
+  \item El servidor \textit{cloud}, el ``cerebro'' encargado de recibir las tramas,
+  los datos y la información relativa a las placas \ac{VIMS}, los dispositivos de
+  usuario y demás componentes. Además, tiene la responsabilidad de ofrecer a los
+  usuarios una \ac{GUI}, generar información relevante a partir de los datos (como
+  estadísticas), gestionar las suscripciones y enviar periódicamente la información
+  al usuario.
+\end{enumerate}
