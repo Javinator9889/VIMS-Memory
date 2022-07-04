@@ -22,6 +22,7 @@
 \usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{fontspec}
+\usepackage[utf8x]{inputenc}   % utf8 is required
 \usepackage[xetex]{graphicx}
 \usepackage{csquotes}
 \usepackage{a4wide} %%Smaller margins, more text per page.
@@ -55,7 +56,6 @@
 \usepackage{mathtools}
 \usepackage[nice]{nicefrac}
 \usepackage[LGR,T1]{fontenc}
-\usepackage[utf8x]{inputenc}   % utf8 is required
 \usepackage{%
     array, %%An ex­tended im­ple­men­ta­tion of the ar­ray and tab­u­lar en­vi­ron­ments which ex­tends the op­tions for col­umn for­mats, and pro­vides "pro­grammable" for­mat spec­i­fi­ca­tions
     booktabs, %%The pack­age en­hances the qual­ity of ta­bles in LATEX, pro­vid­ing ex­tra com­mands as well as be­hind-the-scenes op­ti­mi­sa­tion
@@ -78,6 +78,7 @@
     units,
     url,
     wasysym,
+    pgfplots,
 }
 
 \newcommand{\bigO}[1]{%
@@ -227,9 +228,6 @@
 %% Custom listing settings
 \settttsize{\footnotesize}
 \ActivateVerbatimLigatures
-
-%% Use "tabla" instead of "cuadro"
-\renewcommand{\tablename}{Tabla}
 
 %% Include table of contents and history using roman numbering
 \pagenumbering{roman}

@@ -63,8 +63,8 @@ y delimitado las respuestas que se han registrado:
 \end{enumerate}
 
 La primera pregunta que se realizó a los encuestados era si eran conductores o no.
-Los datos revelan que el $72.7\%$ ($16$) de los encuestados es conductor, mientras que el
-$27.3\%$ ($6$) restante no, del total que fueron $22$ (figura \ref{fig:drivers-nodrivers}):
+Los datos revelan que el $72.7\%$ ($16$) de los encuestados son conductores, mientras que el
+$27.3\%$ ($6$) restantes no, del total que fueron $22$ (figura \ref{fig:drivers-nodrivers}):
 
 \begin{figure}[H]
   \centering
@@ -73,10 +73,162 @@ $27.3\%$ ($6$) restante no, del total que fueron $22$ (figura \ref{fig:drivers-n
   \label{fig:drivers-nodrivers}
 \end{figure}
 
-% Se preguntó a continuación por el tiempo de carnet que tenía cada conductor:
+Sobre aquellos que dijeron ser conductores, se preguntó acerca de los años que
+llevaban con carnet de conducir, así como los tipos de carnet de conducir que tenían
+los encuestados.
 
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=\linewidth]{images/carnet-time.png}
-%   \caption{Años de carnet.}
-% \end{figure}
+Se vio que un $68.8\%$ tenía el carnet desde hace 3 años o más ($11$ encuestados
+en particular); un $12.5\%$ tenía el carnet desde hace solo un año ($2$ encuestados)
+y el restante, en su mayoría, tenía el carnet desde hace menos de un año. Esto se ve
+reflejado en el histograma \ref{fig:carnet-time-hist}:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{images/carnet-time.png}
+  \caption{Histograma que muestra los años de carnet de los encuestados.}
+  \label{fig:carnet-time-hist}
+\end{figure}
+
+Con respecto a los tipos de carnet, el $100\%$ de los encuestados (que dijeron ser
+conductores) tiene el carnet tipo B. Se vio además que el $18.8\%$ tiene además los
+carnets relativos a las motocicletas (muy posiblemente, los encuestados tienen el
+carnet tipo ``A'' que les habilita automáticamente para aquellos de menor nivel,
+como el AM, A1 y A2); y únicamente un encuestado tiene el carnet tipo C, que permite
+conducir camiones.
+
+Una restricción que se comentó con anterioridad era la edad media de los participantes.
+Esta pregunta se realizó por dos motivos:
+
+\begin{enumerate}
+  \item Definir estadísticamente la edad media de la población para una posterior evaluación
+        de su longevidad y experiencia tanto en la conducción como en la posible
+        compra-venta de vehículos.
+  \item Diferenciar, definir y clasificar los encuestados por grupos de edad y descubrir
+        posibles sesgos y restricciones en las respuestas para un posterior análisis
+        sobre la causa de dichos sesgos y restricciones.
+\end{enumerate}
+
+Es necesario decir que solo se preguntó por la edad a aquellas personas que respondieron
+afirmativamente a ser conductores. Esto se hizo así debido a que sus respuestas han
+conformado el dato más relativo a la hora de realizar la investigación, y se hace así
+también estadísticamente.
+
+Se tiene pues que:
+
+\begin{equation}\label{eq:ages}
+  \left\{\begin{aligned}
+    X_{min}               & = 19     \\
+    \bar{X}               & = 30     \\
+    Mediana\left(X\right) & = 26.5   \\
+    S\left(X\right)       & = 10.564 \\
+    X_{max}               & = 55
+  \end{aligned}\right.
+\end{equation}
+
+Se construyó además un gráfico de tarta (figura \ref{fig:ages}) que muestra cómo
+quedan distribuidas las edades de los participantes:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{images/ages-pie.png}
+  \caption{Gráfico de tarta que muestra la distribución de edades (valor previo al paréntesis) y su frecuencia en porcentaje.}
+  \label{fig:ages}
+\end{figure}
+
+Como se puede ver en la ecuación \ref{eq:ages}, la distancia entre los valores
+mínimo y máximo es de $36$ puntos. Sin embargo, los valores de la media $\left(\bar{X}\right)$
+y la mediana $\left(Mediana\left(X\right)\right)$ muestran que la distribución está
+bastante centrada en torno a la media, con una desviación estándar $\left(S\left(X\right)\right)$
+de $\approx\pm10.564$.
+
+Es interesante notar los tres grandes bloques presentes en la figura \ref{fig:ages}
+que evidencian lo que se venía indicando anteriormente: en proporción, a la encuesta
+ha accedido más población joven que adulta. Mismamente, solo el porcentaje de personas
+encuestadas con edad por debajo de los 26 años es del $49.9\%$, casi la mitad de
+los encuestados. Ampliando dicho margen hasta los 36 años, el porcentaje crece hasta
+el $81 \%$.
+
+Este dato se puede ver también reflejado en la distribución de los cuartiles, en donde
+se tiene que:
+
+\begin{equation}\label{eq:age-quartiles}
+  \left\{
+  \begin{aligned}
+    Q_1 & = 22.75 \\
+    Q_3 & = 33.00
+  \end{aligned}
+  \right.
+\end{equation}
+
+Como se puede apreciar en la ecuación \ref{eq:age-quartiles}, la distribución de
+cuartiles está en un rango de edad por debajo de los 33 años para el $75\%$ de la
+muestra, indicativo nuevamente de una población encuestada joven.
+
+Destacan dos datos sobre los demás en donde los encuestados tienen 51 y 55 años
+respectivamente. De este caso en particular se hablará posteriormente, pero cabe
+destacar que sus respuestas fueron las más pobres en cuanto a contenido (sobre todo
+en aquellas que sirvieron de control), seguramente debido al formato del
+cuestionario, fatiga tras responder las secciones anteriores, etc.
+
+Una vez se indagó acerca de la información que identifica a la muestra, se preguntó
+directamente por el vehículo con el que contaban así como las características del
+mismo. Para esta sección, se han dividido las preguntas en tres categorías:
+\textit{básico}, \textit{habitual} y \textit{premium}. Dichas categorías se crean
+según el porcentaje de uso habitual mundial de las características que se
+enumeran en la tabla \ref{tab:car-specs}:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Básico}          & \textbf{Habitual}            & \textit{\textbf{Premium}} \\
+    \hline\hline
+    Control de crucero       & Pantalla táctil              & Asistente virtual         \\
+    Limitador de velocidad   & GPS                          & Aplicación móvil          \\
+    Cámara de visión trasera & Detección de ángulos muertos & Cámara \textit{on-board}  \\
+    Botón de arranque        & Android Auto                 &                           \\
+    \hline
+  \end{tabular}
+  \caption{Tabla de distribución de las características de los vehículos, preguntado en el cuestionario.}
+  \label{tab:car-specs}
+\end{table}
+
+Tras el cuestionario, las frecuencias obtenidas fueron:
+
+\begin{tikzpicture}
+  \begin{axis} [%
+      xbar,
+      width=.8\linewidth,
+      ytick=data,
+      yticklabels={%
+          Nada,
+          Cámara \textit{on-board},
+          Ángulos muertos,
+          Aplicación móvil,
+          Asistente virtual,
+          Android Auto,
+          Cámara trasera,
+          Pantalla táctil,
+          Límite de velocidad,
+          Botón de arranque,
+          GPS,
+          Control de crucero,
+        },
+      xtick=data,
+    ]
+    \addplot coordinates {
+        (3, 0)
+        (1, 1)
+        (1, 2)
+        (1, 3)
+        (2, 4)
+        (4, 5)
+        (4, 6)
+        (5, 7)
+        (7, 8)
+        (7, 9)
+        (8, 10)
+        (10, 11)
+      };
+  \end{axis}
+\end{tikzpicture}
