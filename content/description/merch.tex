@@ -117,10 +117,10 @@ Se tiene pues que:
 
 \begin{equation}\label{eq:ages}
   \left\{\begin{aligned}
-    X_{min}               & = 19     \\
-    \bar{X}               & = 30     \\
-    Mediana\left(X\right) & = 26.5   \\
-    S\left(X\right)       & = 10.564 \\
+    X_{min}               & = 19               \\
+    \bar{X}               & = 30               \\
+    Mediana\left(X\right) & = 26.5             \\
+    S\left(X\right)       & \approx \pm 10.564 \\
     X_{max}               & = 55
   \end{aligned}\right.
 \end{equation}
@@ -195,40 +195,213 @@ enumeran en la tabla \ref{tab:car-specs}:
 
 Tras el cuestionario, las frecuencias obtenidas fueron:
 
-\begin{tikzpicture}
-  \begin{axis} [%
-      xbar,
-      width=.8\linewidth,
-      ytick=data,
-      yticklabels={%
-          Nada,
-          Cámara \textit{on-board},
-          Ángulos muertos,
-          Aplicación móvil,
-          Asistente virtual,
-          Android Auto,
-          Cámara trasera,
-          Pantalla táctil,
-          Límite de velocidad,
-          Botón de arranque,
-          GPS,
-          Control de crucero,
-        },
-      xtick=data,
-    ]
-    \addplot coordinates {
-        (3, 0)
-        (1, 1)
-        (1, 2)
-        (1, 3)
-        (2, 4)
-        (4, 5)
-        (4, 6)
-        (5, 7)
-        (7, 8)
-        (7, 9)
-        (8, 10)
-        (10, 11)
-      };
-  \end{axis}
-\end{tikzpicture}
+\begin{figure}[H]
+
+  \begin{tikzpicture}
+    \begin{axis} [%
+        xbar,
+        width=.8\linewidth,
+        ytick=data,
+        yticklabels={%
+            Nada,
+            Cámara \textit{on-board},
+            Ángulos muertos,
+            Aplicación móvil,
+            Asistente virtual,
+            Android Auto,
+            Cámara trasera,
+            Pantalla táctil,
+            Límite de velocidad,
+            Botón de arranque,
+            GPS,
+            Control de crucero,
+          },
+        xtick=data,
+      ]
+      \addplot coordinates {
+          (3, 0)
+          (1, 1)
+          (1, 2)
+          (1, 3)
+          (2, 4)
+          (4, 5)
+          (4, 6)
+          (5, 7)
+          (7, 8)
+          (7, 9)
+          (8, 10)
+          (10, 11)
+        };
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Distribución de las características de los vehículos de los encuestados.}
+  \label{fig:vehicle-specs}
+\end{figure}
+
+Como se puede observar en la imagen \ref{fig:vehicle-specs}, una gran mayoría de vehículos
+tienen lo que se consideran ``características básicas'', según la tabla \ref{tab:car-specs}.
+
+Es interesante destacar que cada vez más vehículos dentro del parque español cuenta con
+diversos elementos de seguridad y confort, como pantalla táctil y navegador \ac{GPS},
+incluso por encima de ciertas características básicas. Si bien esto es positivo para
+el sector, puede suponer un problema a la hora de sacar a la venta este proyecto ya
+que estaría, según los datos recogidos anteriormente, mayoritariamente orientado
+a vehículos ``antiguos'' o no tan modernos.
+
+Es por ello por lo que se realizó también una encuesta sorbe edad aproximada de
+los vehículos. De la muestra total de 16 conductores, se obtuvieron los siguientes
+datos sobre la edad del parque de vehículos encuestados (ecuación \ref{eq:vehicle-age}):
+
+\begin{equation}\label{eq:vehicle-age}
+  \left\{
+  \begin{aligned}
+    X_{min}               & = 2               \\
+    \bar{X}               & = 10.12           \\
+    Mediana\left(X\right) & = 10.00           \\
+    S\left(X\right)       & \approx \pm 6.839 \\
+    X_{max}               & = 21
+  \end{aligned}
+  \right.
+\end{equation}
+
+En este caso, es muy interesante ver la variedad en las respuestas: entre el mínimo
+y el máximo hay casi 20 años; sin embargo, la media y la mediana son casi las mismas,
+centradas en torno a los 10 años, con una desviación estándar de aproximadamente
+$\pm 6.839$ años.
+
+Para esta estadística es fundamental observar los cuartiles, ya que van a reflejar
+datos muy interesantes que darán ciertas pistas sobre las especificaciones de los
+vehículos, que se habló anteriormente en la figura \ref{fig:vehicle-specs}:
+
+\begin{equation}\label{eq:vehicle-age-quartiles}
+  \left\{
+  \begin{aligned}
+    Q_1 & = 3.5  \\
+    Q_3 & = 14.5
+  \end{aligned}
+  \right.
+\end{equation}
+
+Como se puede observar en los cuartiles \ref{eq:vehicle-age-quartiles}, el $25\%$ de
+la muestra se localiza en los primeros $\left[0, 3.5\right]$ años de antigüedad, y el
+$75\%$ de la muestra es abarcada para todos los vehículos de hasta $14.5$ años de
+antigüedad.
+
+Esta información es muy relevante ya que gran parte de la muestra se corresponde con
+vehículos bastante nuevos, y eso explica en parte el porqué de los resultados obtenidos
+en la encuesta, representada por la figura \ref{fig:vehicle-specs}. Cabe destacar
+que la moda de la distribución es:
+
+\begin{equation}\label{eq:vehicle-age-mode}
+  M\left(X\right) = 2
+\end{equation}
+
+con 4 de los 16 encuestados teniendo un vehículo de 2 años de edad, lo que se traduce
+en un parque muy moderno. Sin embargo, esto también ha servido para desvelar nuevas
+necesidades que no existían antes y que los nuevos vehículos no son capaces de
+suplir.
+
+Con la encuesta ``personal'' ya completada, se dio paso en el cuestionario a una
+evaluación de características que \ac{VIMS} debería incluir. La primera pregunta era
+un listado de 20 características que pueden ser medidas mediante el \ac{OBD}--II
+y un sistema de puntuaciones escalado del 1 al 20. Cuanto más pequeño fuese el valor,
+más importante se considera que es esa característica para el encuestado. Las preguntas
+realizadas se muestran en la tabla \ref{tab:quest-options}:
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{| C{.25} | C{.25} | C{.25}| C{.25} |}
+    \hline
+    Visualización en tiempo real   & Información detallada de errores & Velocímetro                  & Cuentarrevoluciones                        \\
+    \hline
+    Marcha actual (1ª, 2ª, \dots)  & Temperatura del aceite           & Presión del aceite           & Temperatura exterior                       \\
+    \hline
+    Intensidad del acelerador (\%) & Consumo actual                   & Presión de las ruedas        & Presión de los inyectores                  \\
+    \hline
+    Nivel de combustible           & Distancia recorrida              & Nivel de batería             & Nivel de carga en valor absoluto del motor \\
+    \hline
+    Presión atmosférica            & Temperatura de la toma de aire   & Temperatura del refrigerante & Temperatura del motor                      \\
+    \hline
+  \end{tabularx}
+  \caption{Opciones ofrecidas a los encuestados. Se han escogido diversas opciones que se encuentran entre los datos habituales generados por un vehículo.}
+  \label{tab:quest-options}
+\end{table}
+
+Es importante destacar que la tabla anterior contiene valores puramente técnicos,
+en donde solo aquellos con un conocimiento más específico entenderán y sabrán
+interpretar; y otros más genéricos que en principio todos los conductores conocen
+(como velocidad actual, temperatura del aceite, \dots).
+
+Las respuestas a las preguntas anteriores se han estructurado en dos tablas: una
+primera que representa toda la población en general, y una segunda en donde solo
+están las respuestas de los conductores (tabla \ref{tab:answer-population} y tabla
+\ref{tab:answer-drivers}):
+
+\begin{table}[H]
+  \centering
+  \begin{minipage}{.48\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      \textbf{Puntuación} & \textbf{Opción}                            \\
+      \hline
+      1                   & Velocímetro                                \\
+      1                   & Nivel de combustible                       \\
+      4                   & Marcha actual                              \\
+      5                   & Distancia recorrida                        \\
+      5                   & Nivel de batería                           \\
+      6                   & Cuentarrevoluciones                        \\
+      8                   & Intensidad del acelerador (\%)             \\
+      8                   & Presión de las ruedas                      \\
+      10                  & Temperatura del aceite                     \\
+      10                  & Nivel de carga en valor absoluto del motor \\
+      12                  & Visionado en tiempo real                   \\
+      12                  & Consumo actual                             \\
+      12                  & Temperatura del motor                      \\
+      14                  & Presión del aceite                         \\
+      14                  & Temperatura del refrigerante               \\
+      16                  & Presión atmosférica                        \\
+      17                  & Temperatura exterior                       \\
+      19                  & Información detallada de errores           \\
+      19                  & Presión de los inyectores                  \\
+      20                  & Temperatura de la toma de aire             \\
+      \hline
+    \end{tabularx}
+    \caption{Puntuaciones obtenidas de forma general, por la población al completo (conductores y no conductores).}
+    \label{tab:answer-population}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.48\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      \textbf{Puntuación} & \textbf{Opción}                   \\
+      \hline
+      1                   & Velocímetro                       \\
+      1                   & Nivel de combustible              \\
+      3                   & Temperatura del motor             \\
+      4                   & Temperatura del aceite            \\
+      4                   & Nivel de batería                  \\
+      5                   & Distancia recorrida               \\
+      6                   & Cuentarrevoluciones               \\
+      7                   & Presión de los inyectores         \\
+      8                   & Presión de las ruedas             \\
+      10                  & Presión del aceite                \\
+      11                  & Marcha actual                     \\
+      11                  & Presión atmosférica               \\
+      14                  & Temperatura del refrigerante      \\
+      15                  & Temperatura exterior              \\
+      17                  & Intensidad del acelerador (\%)    \\
+      18                  & Información detallada de errores  \\
+      18                  & Consumo actual                    \\
+      19                  & Temperatura de la toma de aire    \\
+      20                  & Visionado en tiempo real          \\
+      20                  & Nivel de carga absoluta del motor \\
+      \hline
+    \end{tabularx}
+    \caption{Puntuaciones obtenidas de forma general, por la población (excluidos los no conductores).}
+    \label{tab:answer-drivers}
+  \end{minipage}
+\end{table}
+
+De los datos anteriores es interesante ver cómo ciertos campos cambian completamente
+de ubicación según ha respondido la población general o solo los conductores, como por
+ejemplo la temperatura del motor.
