@@ -404,4 +404,128 @@ están las respuestas de los conductores (tabla \ref{tab:answer-population} y ta
 
 De los datos anteriores es interesante ver cómo ciertos campos cambian completamente
 de ubicación según ha respondido la población general o solo los conductores, como por
-ejemplo la temperatura del motor.
+ejemplo la temperatura del motor. Otras, por el contrario, es interesante que se mantengan
+en la misma posición según las tablas, como el velocímetro. Este caso en particular
+resulta especialmente interesante ya que es un elemento que tienen todos los vehículos.
+Sin embargo, tanto la población en general como la comunidad de conductores lo ha
+puntuado como el elemento de más interés sobre el que obtener datos.
+
+De las características puntuadas en las tablas \ref{tab:answer-population} y \ref{tab:answer-drivers}
+se extraerán una serie de componentes que se detallan en mayor profundidad en el
+punto \ref{ssec:user-req}, la obtención de los requisitos de usuario.
+
+A continuación, se realizaron una serie de preguntas de desarrollo, en donde el
+encuestado tenía libertad para poder exponer ideas y opiniones sobre ciertas
+características del coche. Esta sección sirvió en parte como sección de control
+y también ha permitido definir con mayor certeza ciertas restricciones del cuestionario,
+como su accesibilidad. También ha permitido descubrir el porqué de ciertas puntuaciones
+especialmente elevadas.
+
+La primera pregunta que se realizó fue: ``\textbf{¿Qué te gustaría poder medir de tu coche?}''.
+Ante dicha pregunta, hay ciertas ideas interesantes:
+
+\begin{itemize}
+  \item El velocímetro en digital, que explica el porqué tiene una puntuación tan alta.
+  \item Información relativa al estado del coche: nivel de aceite, presión de las ruedas, líquido de frenos, \dots
+  \item Nivel de gasto de combustible con respecto al histórico de otros meses.
+  \item Consumo de combustible actual y estimación de kilómetros.
+  \item Información referente al estado mecánico del vehículo que pueda ayudar a prevenir averías.
+  \item Ubicación de aparcamiento.
+  \item Vida útil de la batería del motor eléctrico.
+  \item Recorrido seguido durante un trayecto.
+\end{itemize}
+
+Como se puede apreciar, gran parte de las respuestas van orientadas a prevenir fallos
+mecánicos, a estimaciones de combustible y generación de información de los viajes
+(la enumeración anterior es un resumen de las respuestas totales -- hay repeticiones
+entre ellas). Es interesante que ciertas respuestas ya se habían contemplado en
+la primera etapa de diseño del proyecto, y reafirman lo que se busca desde el
+comienzo: que el usuario recupere el control sobre su vehículo.
+
+A continuación, se realiza una segunda pregunta muy parecida a la primera que se usó
+como control (\textbf{¿Qué información echas en falta en tu uso habitual del coche?}).
+Esta pregunta se ha ignorado ya que se utilizó principalmente para verificar la
+coherencia entre las respuestas. Algunos usuarios aportaron algunas ideas nuevas
+de elementos que querrían medir, otros copiaron la respuesta anterior (que se
+consideró válido dada la índole de la pregunta) y otros hicieron referencia a
+características específicas de la pregunta anterior.
+
+Otra pregunta que se hizo fue ``\textbf{Si tuvieras que añadirle una característica al
+coche, ¿cuál sería?}'', en donde el usuario se podía poner ``imaginativo'' y comentar
+qué querría que tuviese su vehículo. De las respuestas, las hubieron muy variadas
+y distintas, y solo se muestran aquí algunas que podrían ser implementadas con
+\ac{VIMS}:
+
+\begin{itemize}
+  \item Presión de las ruedas.
+  \item Aviso de errores.
+  \item Desgaste de las ruedas.
+  \item Calidad del aire del habitáculo.
+  \item Emisiones de $CO_2$ y advertencia ante fuertes temperaturas.
+\end{itemize}
+
+Finalmente, se preguntó por ciertas acciones que resultarían de interés el
+automatizarlas, también sin restricción en las respuestas. Algunas respuestas
+fueron:
+
+\begin{itemize}
+  \item Reset del odómetro.
+  \item Aviso de mantenimientos recomendados según kilometraje -- ruedas, aceite, frenos, etc.
+  \item Generación de estadísticas del viaje para trayectos de más de 30 minutos según
+        las características mencionadas en las preguntas anteriores.
+\end{itemize}
+
+Estas respuestas fueron muy útiles para generar y definir los requisitos de usuario:
+a fin de cuentas, el usuario es el \textit{stakeholder} principal y satisfacer sus
+necesidades debe ser la principal prioridad (y desde aquí, muchas gracias a todos
+ellos por responder). Se detalla más de qué se implementa finalmente en el punto
+\ref{ssec:user-req}.
+
+Como se ha mencionado anteriormente, el cuestionario presenta de partida ciertas
+restricciones para aquellos que quieran participar. Por una parte, al ser un cuestionario
+puramente \textit{online}, el acceso ya está restringido de base a aquellos con
+conocimiento suficiente o un uso hábil de la tecnología (esto se ha podido ver
+en la ecuación \ref{eq:ages} y en la imagen \ref{fig:ages} con respecto a la medición
+de la edad). Por otro lado, otra restricción existente es el conocimiento de los
+participantes con respecto al tema que se preguntaba.
+
+Para evaluar las restricciones, se introdujo una última pregunta en la que se
+solicitaba a los encuestados añadir alguna sugerencia o comentario que tuviesen con
+respecto al cuestionario. Además, se evaluó el lenguaje utilizado para responder las
+preguntas y se realizó un análisis sobre dichas respuestas.
+
+Por una parte, se indicó que responder y puntuar las características no resultó
+cómodo, sobre todo en dispositivos móviles donde la pantalla es mucho más pequeña.
+Se usó el formato matricial ofrecido por Google Forms, pero el problema resultó
+de que la matriz fuese $20 \times 20$, excesivamente grande en según qué dispositivo
+se respondiese al cuestionario.
+
+Otra sugerencia que se repitió con más o menos frecuencia fue la de la accesibilidad
+y fluidez del producto final. Un encuestado con un vehículo relativamente nuevo
+mencionaba lo molesto que le resulta interactuar con la pantalla de su vehículo y notar
+retardo en las acciones, que se quedase bloqueado abriendo aplicaciones, etc., lo cual
+le transmitía la sensación de que contaba con un vehículo antiguo y de mala calidad.
+
+Siguiendo la misma línea, otro usuario mencionaba que querría que el producto final
+fuese simple y fácil de entender a primera vista, evitando el exceso de datos y la
+complejidad de la interfaz de usuario final.
+
+Por otro lado, finalizando con lo que se estudió al inicio de este apartado, se
+estudió la ``calidad'' de las respuestas, en especial en los sujetos cuya edad
+era bastante superior a la media. Es notorio que dichos sujetos, en las preguntas
+de desarrollo, indicasen en todas las ocasiones ``\textit{Ns/nc}'' (\textit{No Sabe/No Contesta}).
+Tras evaluarlo con cierto detenimiento (teniendo en cuenta la buena fe de los
+participantes y sabiendo quiénes son), se deduce que el cuestionario resultó
+excesivamente largo y complejo para los que lo respondieron, en especial el sector
+más longevo de la población. Esto pudo dificultar el responder al mismo debido
+a la fatiga, el tiempo que llevaba o lo técnico que pudiera resultar el lenguaje,
+afectando directamente a la calidad de las respuestas.
+
+Se vio cómo además ciertos usuarios tuvieron dificultad al responder al cuestionario
+debido a los tecnicismos o palabras propias del sector que pudieran usarse. Un
+ejemplo es la palabra ``odómetro'' (también conocido como cuentakilómetros, aunque
+nunca se uso ese sinónimo ni se mencionó), que resultó ser ajena para varios encuestados.
+
+Estas restricciones se comentarán más adelante, en el punto \ref{chap:conclussions},
+sobre cómo abordarlas si se volviese a repetir el estudio, junto con ciertas mejoras
+en el planteamiento del cuestionario.
