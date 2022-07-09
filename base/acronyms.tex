@@ -1,14 +1,17 @@
 \begin{acronym}
   \acro{ADAS}{\textit{Advanced Driver Assistance Systems}}
+  \acro{ADC}{\textit{Analog--Digital Converter}}
   \acro{ALDL}{\textit{Computerized Assembly Line Diagnostics Link}}
   \acro{API}{\textit{Application Programming Interface}}
   \acro{BLE}{\textit{Bluetooth Low Energy}}
+  \acro{BR/EDR}{\textit{Basic Rate/Enhaced Data Rate}}
   \acro{CAN}{\textit{Controller Area Network}}
   \acro{CARB}{\textit{California Air Resources Board}}
   \acro{DTC}{\textit{Diagnostic Trouble Codes}}
   \acro{ECU}{\textit{Engine Control Unit}}
   \acro{EOBD}{\textit{European On-Board Diagnostics}}
   \acro{GB}{\textit{gigabyte}}
+  \acro{GPIO}{\textit{General Purpose Input/Output}}
   \acro{GPS}{\textit{Global Positioning System}}
   \acro{GUI}{\textit{Graphical User Interface}}
   \acro{IoT}{\textit{Internet of Things}}
@@ -17,12 +20,16 @@
   \acro{MIL}{\textit{Malfunction Indicator Lamp}}
   \acro{MSB}{\textit{Most Significant Bit}}
   \acro{OBD}{\textit{On-Board Diagnostics}}
+  \acro{P2P}{\textit{Point-to-Point}}
   \acro{PAN}{\textit{Personal Area Network}}
   \acro{PFM}{Proyecto Fin de Máster}
   \acro{PID}{\textit{Parameter ID}}
+  \acro{PWM}{\textit{Pulse--Width Modulation}}
   \acro{RPM}{Revoluciones Por Minuto}
   \acro{SAE}{\textit{Society of Automotive Engineers}}
+  \acro{SoC}{\textit{System on Chip}}
   \acro{UART}{\textit{Universal Ascynchronous Receiver--Transmitter}}
+  \acro{ULP}{\textit{Ultra Low Power}}
   \acro{VIMS}{\textit{Vehicle IoT Metrics System}}
   \acro{VIN}{\textit{Vehicle Identification Number}}
 \end{acronym}
@@ -37,17 +44,22 @@
         capa de abstracción sobre el original \cite{InterfazProgramacionAplicaciones2021}.
   \item \ac{BLE} -- tecnología \ac{PAN} que permite la comunicación entre dispositivos
         con un rango similar a Bluetooth pero un menor consumo de energía.
+  \item \ac{BR/EDR} -- terminología asociada al estándar Bluetooth que define el modo
+        de funcionamiento clásico del mismo. Se caracteriza por contar con 79 canales
+        de $1~MHz$ de ancho de banda, operar en la red de $2.4~GHz$, ser \ac{P2P},
+        transmitir a una velocidad máxima de $3~Mbps$ y tener un consumo medio de
+        $1~W$ \cite{ComparisonBluetoothBR}.
   \item Bus \ac{CAN} -- protocolo de comunicaciones de tiempo real para el envío de
         mensajes en entornos distribuidos, permitiendo la comunicación
         entre múltiples CPUs.
-        misma red o malla. Tiene un alcance muy limitado, de unos pocos metros por
-        lo general.
   \item \ac{DTC} -- códigos de diagnóstico almacenados en un vehículo que identifican
         un error que tiene el vehículo o que ha tenido.
   \item \ac{ECU} -- centralita electrónica conectado a todos los sensores y sistemas
         del vehículo que recibe la información de los mismos y ejecuta comandos o acciones
         contra ellos.
   \item \ac{GB} -- unidad de almacenamiento de información equivalente a $10^9$ bytes.
+  \item \ac{GPIO} -- pin genérico cuyo comportamiento puede ser controlado en tiempo
+        de ejecución.
   \item \ac{GPS} -- sistema que permite posicionar cualquier objeto con una 
         precisión de hasta centímetros usando cuatro o más satélites y 
         trilateración \cite{GPS2021}.
@@ -61,11 +73,15 @@
   \item \ac{LTE} -- también conocido como ``\texttt{4G}'', es la cuarta generación
         del estándar de conexión móvil a Internet que mejora a su predecesor, el \texttt{3G}.
   \item \ac{MSB} -- bit, de acuerdo con su posición, tiene mayor valor (extremo izquierdo).
-  \item \ac{OBD} -- sistema de diagnóstico a bordo de vehículos que
-  \item \ac{PAN} -- redes destinadas a la comunicación entre dispositivos en una
-        cuenta con múltiples estándares según la región de uso. Estos
+  \item \ac{OBD} -- sistema de diagnóstico a bordo de vehículos que cuenta con múltiples estándares según la región de uso. Estos
         sistemas ofrecen una monitorización activa y control completo
         sobre el motor y otros dispositivos del vehículo \cite{OBD2021}.
+  \item \ac{P2P} -- protocolo de comunicación entre dos nodos en donde sendos nodos se
+        interconectan entre sí para el intercambio de información sin necesidad de usar
+        un intermediario.
+  \item \ac{PAN} -- redes destinadas a la comunicación entre dispositivos en una
+        misma red o malla. Tiene un alcance muy limitado, de unos pocos metros por
+        lo general.
   \item \ac{PID} -- parámetro utilizado en la comunicación mediante \ac{OBD}--II que
         identifica el tipo de petición que el mecánico/usuario quiera hacer al sistema.
         Son valores enteros de 16 bits que funcionan en formato clave--valor. La información
@@ -73,8 +89,15 @@
         representan la información solicitada por el usuario. Por lo general, se deben
         realizar ciertas operaciones aritméticas con ese conjunto de bytes para obtener
         la representación decimal del valor \cite{OBDIIPIDs2021}.
+  \item \ac{PWM} -- señal cuadrada de periodo habitualmente constante, entre flancos de
+        subida, en la que se modula el tiempo a nivel alto.
   \item \textit{Smog} -- nube baja formada por dióxido de carbono, hollín, humo y polvo
         en suspensión que se forma sobre las grandes ciudades o núcleos industriales.
+  \item \ac{SoC} -- denominación asociada a los sistemas (generalmente embebidos) que
+        aúnan todos los módulos que requieren para funcionar (y otros tantos para añadir más
+        funcionalidades) en un único \textit{chip} que expone al exterior dichas
+        funcionalidades mediante una interfaz \textit{hardware} como si fuese un único
+        circuito integrado.
   \item trilateración -- método matemático que permite determinar las posiciones
         relativas de objetos usando la geometría de los triángulos \cite{Trilateracion2021}.
   \item \ac{VIN} -- código único, incluyendo el número de serie, que identifica individualmente
