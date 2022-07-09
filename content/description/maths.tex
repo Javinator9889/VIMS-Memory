@@ -124,20 +124,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{05}                    \\
+    \textbf{PID (hex)}       & \texttt{05}                            \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                                    \\
     \hline
     \textbf{Descripción}     & Temperatura del refrigerante del motor \\
     \hline
-    \textbf{Valor mínimo}    & $-40~\tccentigrade$                          \\
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$                    \\
     \hline
-    \textbf{Valor máximo}    & $215~\tccentigrade$                        \\
+    \textbf{Valor máximo}    & $215~\tccentigrade$                    \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                                        %
     \begin{equation*}
       A - 40
-    \end{equation*}                                 \\
+    \end{equation*}                                         \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{05} -- temperatura del refrigerante del motor, en $\tccentigrade$.}
@@ -147,20 +147,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{0C}                    \\
+    \textbf{PID (hex)}       & \texttt{0C}         \\
     \hline
-    \textbf{Bytes devueltos} & $2$                            \\
+    \textbf{Bytes devueltos} & $2$                 \\
     \hline
     \textbf{Descripción}     & Velocidad del motor \\
     \hline
-    \textbf{Valor mínimo}    & $0~RPM$                          \\
+    \textbf{Valor mínimo}    & $0~RPM$             \\
     \hline
-    \textbf{Valor máximo}    & $16383.75~RPM$                        \\
+    \textbf{Valor máximo}    & $16383.75~RPM$      \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                     %
     \begin{equation*}
       \frac{256A + B}{4}
-    \end{equation*}                                 \\
+    \end{equation*}                      \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{0C} -- velocidad del motor, en $RPM$.}
@@ -170,20 +170,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{0D}                    \\
+    \textbf{PID (hex)}       & \texttt{0D}            \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                    \\
     \hline
     \textbf{Descripción}     & Velocidad del vehículo \\
     \hline
-    \textbf{Valor mínimo}    & $0~\nicefrac{km}{h}$                          \\
+    \textbf{Valor mínimo}    & $0~\nicefrac{km}{h}$   \\
     \hline
-    \textbf{Valor máximo}    & $255~\nicefrac{km}{h}$                        \\
+    \textbf{Valor máximo}    & $255~\nicefrac{km}{h}$ \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                        %
     \begin{equation*}
       A
-    \end{equation*}                                 \\
+    \end{equation*}                         \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{0D} -- velocidad del vehículo, en $\nicefrac{km}{h}$.}
@@ -193,20 +193,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{11}                    \\
+    \textbf{PID (hex)}       & \texttt{11}             \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                     \\
     \hline
     \textbf{Descripción}     & Posición del acelerador \\
     \hline
-    \textbf{Valor mínimo}    & $0\%$                          \\
+    \textbf{Valor mínimo}    & $0\%$                   \\
     \hline
-    \textbf{Valor máximo}    & $100\%$                        \\
+    \textbf{Valor máximo}    & $100\%$                 \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                         %
     \begin{equation*}
       \frac{A}{2.55}
-    \end{equation*}                                 \\
+    \end{equation*}                          \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{11} -- posición del acelerador, en $\%$.}
@@ -216,20 +216,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{2F}                    \\
+    \textbf{PID (hex)}       & \texttt{2F}                      \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                              \\
     \hline
     \textbf{Descripción}     & Nivel del tanque del combustible \\
     \hline
-    \textbf{Valor mínimo}    & $0\%$                          \\
+    \textbf{Valor mínimo}    & $0\%$                            \\
     \hline
-    \textbf{Valor máximo}    & $100\%$                        \\
+    \textbf{Valor máximo}    & $100\%$                          \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                                  %
     \begin{equation*}
       \frac{A}{2.55}
-    \end{equation*}                                 \\
+    \end{equation*}                                   \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{2F} -- nivel del tanque del combustible, en $\%$.}
@@ -239,20 +239,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{46}                    \\
+    \textbf{PID (hex)}       & \texttt{46}          \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                  \\
     \hline
     \textbf{Descripción}     & Temperatura ambiente \\
     \hline
-    \textbf{Valor mínimo}    & $-40~\tccentigrade$                          \\
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$  \\
     \hline
-    \textbf{Valor máximo}    & $215~\tccentigrade$                        \\
+    \textbf{Valor máximo}    & $215~\tccentigrade$  \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                      %
     \begin{equation*}
       A - 40
-    \end{equation*}                                 \\
+    \end{equation*}                      \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{46} -- temperatura ambiente, en $\tccentigrade$.}
@@ -262,20 +262,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{5B}                    \\
+    \textbf{PID (hex)}       & \texttt{5B}                           \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                                   \\
     \hline
     \textbf{Descripción}     & Tiempo restante de la batería híbrida \\
     \hline
-    \textbf{Valor mínimo}    & $0\%$                          \\
+    \textbf{Valor mínimo}    & $0\%$                                 \\
     \hline
-    \textbf{Valor máximo}    & $100\%$                        \\
+    \textbf{Valor máximo}    & $100\%$                               \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                                       %
     \begin{equation*}
       \frac{A}{2.55}
-    \end{equation*}                                 \\
+    \end{equation*}                                       \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{5B} -- tiempo restante de la batería híbrida, en $\%$.}
@@ -285,20 +285,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{5C}                    \\
+    \textbf{PID (hex)}       & \texttt{5C}            \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                    \\
     \hline
     \textbf{Descripción}     & Temperatura del aceite \\
     \hline
-    \textbf{Valor mínimo}    & $-40~\tccentigrade$                          \\
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$    \\
     \hline
-    \textbf{Valor máximo}    & $215~\tccentigrade$                        \\
+    \textbf{Valor máximo}    & $215~\tccentigrade$    \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                        %
     \begin{equation*}
       A - 40
-    \end{equation*}                                 \\
+    \end{equation*}                        \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{5C} -- temperatura del aceite, en $\tccentigrade$.}
@@ -308,20 +308,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{5E}                    \\
+    \textbf{PID (hex)}       & \texttt{5E}               \\
     \hline
-    \textbf{Bytes devueltos} & $2$                            \\
+    \textbf{Bytes devueltos} & $2$                       \\
     \hline
-    \textbf{Descripción}     & Consumo actual del motor \\
+    \textbf{Descripción}     & Consumo actual del motor  \\
     \hline
-    \textbf{Valor mínimo}    & $0~\nicefrac{L}{h}$                          \\
+    \textbf{Valor mínimo}    & $0~\nicefrac{L}{h}$       \\
     \hline
-    \textbf{Valor máximo}    & $3212.75~\nicefrac{L}{h}$                        \\
+    \textbf{Valor máximo}    & $3212.75~\nicefrac{L}{h}$ \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                           %
     \begin{equation*}
       \frac{256A + B}{20}
-    \end{equation*}                                 \\
+    \end{equation*}                           \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{5E} -- consumo actual del motor, en $\nicefrac{L}{h}$.}
@@ -331,20 +331,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{61}                    \\
+    \textbf{PID (hex)}       & \texttt{61}                       \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                               \\
     \hline
     \textbf{Descripción}     & Torque demandado por el conductor \\
     \hline
     \textbf{Valor mínimo}    & $-125\%$                          \\
     \hline
-    \textbf{Valor máximo}    & $130\%$                        \\
+    \textbf{Valor máximo}    & $130\%$                           \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                                   %
     \begin{equation*}
       A - 125
-    \end{equation*}                                 \\
+    \end{equation*}                                   \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{61} -- torque demandado por el conductor, en $\%$.}
@@ -354,20 +354,20 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{62}                    \\
+    \textbf{PID (hex)}       & \texttt{62}             \\
     \hline
-    \textbf{Bytes devueltos} & $1$                            \\
+    \textbf{Bytes devueltos} & $1$                     \\
     \hline
     \textbf{Descripción}     & Torque actual del motor \\
     \hline
-    \textbf{Valor mínimo}    & $-125\%$                          \\
+    \textbf{Valor mínimo}    & $-125\%$                \\
     \hline
-    \textbf{Valor máximo}    & $130\%$                        \\
+    \textbf{Valor máximo}    & $130\%$                 \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                         %
     \begin{equation*}
       A - 125
-    \end{equation*}                                 \\
+    \end{equation*}                         \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{62} -- torque actual del motor, en $\%$.}
@@ -383,14 +383,14 @@ está en marcha. Los datos a los que se accede son:
     \hline
     \textbf{Descripción}     & Torque de referencia del motor \\
     \hline
-    \textbf{Valor mínimo}    & $0~N \cdot M$                          \\
+    \textbf{Valor mínimo}    & $0~N \cdot M$                  \\
     \hline
-    \textbf{Valor máximo}    & $65535~N \cdot M$                        \\
+    \textbf{Valor máximo}    & $65535~N \cdot M$              \\
     \hline
     \textbf{Fórmula}         &                                %
     \begin{equation*}
       256A + B
-    \end{equation*}                                 \\
+    \end{equation*}                                \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{63} -- torque de referencia del motor, en $N \cdot M$.}
@@ -400,23 +400,23 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{A4}                    \\
+    \textbf{PID (hex)}       & \texttt{A4}                \\
     \hline
-    \textbf{Bytes devueltos} & $4$                            \\
+    \textbf{Bytes devueltos} & $4$                        \\
     \hline
     \textbf{Descripción}     & Marcha actual del vehículo \\
     \hline
-    \textbf{Valor mínimo}    & $0~\text{ratio}$                          \\
+    \textbf{Valor mínimo}    & $0~\text{ratio}$           \\
     \hline
-    \textbf{Valor máximo}    & $65535~\text{ratio}$                        \\
+    \textbf{Valor máximo}    & $65535~\text{ratio}$       \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                            %
     \begin{equation*}
       \begin{aligned}
-        A_1 &= 1 \Rightarrow \text{soportado} \\
-        R &= \frac{256C + D}{1000}
+        A_1 & = 1 \Rightarrow \text{soportado} \\
+        R   & = \frac{256C + D}{1000}
       \end{aligned}
-    \end{equation*}                                 \\
+    \end{equation*}                            \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{A4} -- marcha actual del vehículo, en ratio.}
@@ -426,21 +426,136 @@ está en marcha. Los datos a los que se accede son:
   \centering
   \begin{tabularx}{\textwidth}{|c|X|}
     \hline
-    \textbf{PID (hex)}       & \texttt{A6}                    \\
+    \textbf{PID (hex)}       & \texttt{A6}      \\
     \hline
-    \textbf{Bytes devueltos} & $4$                            \\
+    \textbf{Bytes devueltos} & $4$              \\
     \hline
-    \textbf{Descripción}     & Odómetro \\
+    \textbf{Descripción}     & Odómetro         \\
     \hline
-    \textbf{Valor mínimo}    & $0~km$                          \\
+    \textbf{Valor mínimo}    & $0~km$           \\
     \hline
-    \textbf{Valor máximo}    & $429496729.5~km$                        \\
+    \textbf{Valor máximo}    & $429496729.5~km$ \\
     \hline
-    \textbf{Fórmula}         &                                %
+    \textbf{Fórmula}         &                  %
     \begin{equation*}
       \frac{A\left(2^{24}\right) + B\left(2^{16}\right) + C\left(2^8\right) + D}{10}
-    \end{equation*}                                 \\
+    \end{equation*}                  \\
     \hline
   \end{tabularx}
   \caption{\ac{PID} \texttt{A6} -- odómetro, en $km$.}
+\end{table}
+
+\subsection*{Modo \texttt{03}}
+El modo \texttt{03} devuelve los \ac{DTC} guardados de la sesión actual. Estos códigos
+de diagnóstico representan los distintos errores que hay en el vehículo, con un conjunto
+de bytes que los identifican.
+
+Este modo, a diferencia de los otros, no requiere de un parámetro \ac{PID} sino que solo
+se envía el servicio como identificador. Una petición al modo \texttt{03} devolverá una
+lista de $n$ elementos en donde cada elemento ocupa 2 bytes (por ende, el tamaño
+esperable de la trama es $2n$).
+
+Los códigos de error se definen como un conjunto de 5 caracteres de la forma: ``\texttt{U0158}''.
+El valor de los caracteres define así:
+
+\begin{table}[H]
+  \centering
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_7$ - $A_6$ & \textbf{Primer caracter \ac{DTC}}                         \\
+      \hline
+      \texttt{00}             & \textbf{P} -- sistema de propulsión (\textit{powertrain}) \\
+      \texttt{01}             & \textbf{C} -- chassis                                     \\
+      \texttt{10}             & \textbf{B} -- cuerpo (\textit{body})                      \\
+      \texttt{11}             & \textbf{U} -- comunicaciones (\textit{network})           \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_5$ - $A_4$ & \textbf{Segundo caracter \ac{DTC}} \\
+      \hline
+      \texttt{00}             & \texttt{0}                         \\
+      \texttt{01}             & \texttt{1}                         \\
+      \texttt{10}             & \texttt{2}                         \\
+      \texttt{11}             & \texttt{3}                         \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_3$ - $A_0$ & \textbf{Tercer caracter \ac{DTC}} \\
+      \hline
+      \texttt{0000}             & \texttt{0}                        \\
+      \texttt{0001}             & \texttt{1}                        \\
+      \texttt{0010}             & \texttt{2}                        \\
+      \texttt{0011}             & \texttt{3}                        \\
+      \texttt{0100}             & \texttt{4}                        \\
+      \texttt{0101}             & \texttt{5}                        \\
+      \texttt{0110}             & \texttt{6}                        \\
+      \texttt{0111}             & \texttt{7}                        \\
+      \texttt{1000}             & \texttt{8}                        \\
+      \texttt{1001}             & \texttt{9}                        \\
+      \texttt{1010}             & \texttt{A}                        \\
+      \texttt{1011}             & \texttt{B}                        \\
+      \texttt{1100}             & \texttt{C}                        \\
+      \texttt{1101}             & \texttt{D}                        \\
+      \texttt{1110}             & \texttt{E}                        \\
+      \texttt{1111}             & \texttt{F}                        \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+\end{table}
+
+Los caracteres cuarto y quinto se corresponden a los bits $B_7$ -- $B_4$ y $B_3$ -- $B_0$
+respectivamente, y siguen la notación hexadecimal (al igual que los bits $A_3$ -- $A_0$).
+
+De esta forma, con el código ya extraído, se necesita mirar en una tabla de valores
+\ac{DTC} para saber exactamente a qué error se corresponde. Una web muy interesante
+es la de ``OBD-Codes.com'' \cite{OBDCodesComLeading}, en donde hay información tanto
+de códigos \ac{DTC} estándar como de códigos propietarios. Mirando en la propia
+web, el código \texttt{U0158} se correspondería a: ``\textit{Lost communication with
+head-up display}''\footnote{En la propia web dan muchos detalles e información
+extendida sobre el error en cuestión, al igual que procedimientos para poder
+solucionar el problema -- \url{https://www.obd-codes.com/u0158}}.
+
+\subsection*{Modo \texttt{09}}
+El modo \texttt{09} devuelve información referente al vehículo en sí, no al estado
+de los sensores o del propio vehículo. Algunos datos interesantes son:
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{02}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $17$                            \\
+    \hline
+    \textbf{Descripción}     & \ac{VIN} \\
+    \hline
+    \textbf{Fórmula}         & \ac{VIN} de 17 caracteres ASCII con \textit{padding} a la izquierda de caracteres nulos (\texttt{0x00}) si hace falta \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{02} -- \ac{VIN}.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{0A}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $20$                            \\
+    \hline
+    \textbf{Descripción}     & Nombre de la \ac{ECU} \\
+    \hline
+    \textbf{Fórmula}         & 20 caracteres ASCII con \textit{padding} a la derecha de caracteres nulos (\texttt{0x00}) \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{0A} -- nombre de la \ac{ECU}.}
 \end{table}
