@@ -1,0 +1,54 @@
+A raíz del apartado anterior y de la cantidad de datos que se pretenden recoger
+durante el funcionamiento del sistema, una parte fundamental es la planificación
+de las tareas del mismo.
+
+En principio, \ac{VIMS} no se define como un sistema en tiempo real. Sin embargo,
+la envergadura del proyecto y la cantidad de acciones a realizar de forma coordinada
+y concurrente requiere de una planificación del proyecto a la hora de definir tareas,
+plazos y periodos.
+
+En un primer análisis, se detectan las siguientes casuísticas que llevarán asociada
+la tarea pertinente:
+
+\begin{enumerate}
+  \item Lectura de datos desde el conector \ac{OBD}--II. Esta tarea almacenará la
+        información en crudo del conector en una estructura de datos propia, preparada
+        para que otra tarea los adapte y transforme en información entendible. Además,
+        establecerá una marca temporal para los datos de manera que se sepa exactamente
+        en qué momento se obtuvieron.
+  \item Conversión de los datos leídos desde el \ac{OBD}--II. Esta tarea deberá
+        leer y convertir los datos almacenados en crudo por el \ac{OBD}--II en
+        datos legibles y entendibles por el ser humando. Se encargará además de
+        definir las unidades de medida asociadas al dato en sí.
+  \item Transmisión de los datos al servidor en la nube. Esta tarea deberá enviar
+        los datos ya preparados con su unidad correspondiente y su marca temporal
+        usando el protocolo MQTT al servidor en la nube. Según la tecnología de
+        recepción presente en el \textit{backend}, se pueden enviar los datos
+        individualmente a un \textit{endpoint} específico de MQTT (lo cual simplificaría
+        la gestión de la información por parte del servidor) o se deberán enviar todos
+        en conjunto como un JSON al servidor en backend.
+  \item Persistencia de los datos en la tarjeta microSD. Esta tarea almacenará
+        los datos provisionalmente en la tarjeta microSD si no han podido ser enviados
+        al servidor remoto (por ejemplo, por no disponibilidad de la red). Se deberán
+        serializar los datos junto con su marca temporal para una posterior retransmisión
+        cuando haya disponibilidad de red.
+  \item Estado de la conectividad de red. Esta tarea se encargará de comprobar
+        periódicamente que la conexión de red está disponible y es accesible desde
+        el dispositivo, simplificando la lógica de comunicación del resto de tareas.
+  \item Sincronización del reloj con la red. Esta tarea se encargará, mediante el
+        protocolo \ac{NTP}, de mantener el reloj interno de la placa sincronizado con el
+        tiempo \ac{UTC}, de forma que todas las marcas temporales asociadas están siempre
+        con la hora adecuada.
+  \item Ubicación del dispositivo. Esta tarea se encargará de actualizar la ubicación
+        del dispositivo y almacenar los datos para su posterior envío al servidor remoto.
+  \item Estado eléctrico del sistema. Esta tarea se encargará de comprobar periódicamente
+        la tensión de entrada del sistema para detectar cambios drásticos en dicha
+        tensión (de $\approx \pm 1.1V$) para saber cuándo el sistema debe entrar en
+        modo de bajo consumo.
+\end{enumerate}
+
+Las tareas anteriores deberán planificarse siguiendo un esquema de planificación de
+tiempo real que contemple frecuencia de activación, retardos relativos producidos
+por la interdependencia de las tareas, tiempo de cómputo estimado, prioridades
+según frecuencia, acceso a recursos compartidos y herencia de prioridad por acceso
+a dichos recursos (prioridad de techo).
