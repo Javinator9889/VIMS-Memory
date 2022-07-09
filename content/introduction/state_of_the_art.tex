@@ -20,8 +20,8 @@ problemas era con algunos medidores y, sobre todo, por intuición:
 sonidos del motor, olores extraños, \dots
 
 No fue hasta los años 60 en donde los vehículos empezaron a incorporar
-distintas pantallas y métricas que podían informar sobre el estado del
-vehículo. El gran bum llegó con la expansión de la computadora, en donde
+distintas interfaces con métricas que podían informar sobre el estado del
+vehículo. El gran ``bum'' llegó con la expansión de la computadora, en donde
 por primera vez se vio factible introducir un pequeño ordenador de 
 abordo en el sistema.
 
@@ -45,8 +45,8 @@ que le transmitiese el vehículo al mecánico. No fue hasta 1980 en donde
 se implementó de forma estándar en los vehículos de \textit{General Motors}
 el \ac{ALDL}, un lector de errores del coche que funcionó inicialmente a
 160 baudios. Años más tarde, el sistema se refinaría usando el estándar
-\ac{UART} \textit{half--duplex}, es decir, una única transmisión en
-un sentido (figura \ref{fig:aldl}). La principal motivación de incluir estos sistemas no fue
+\ac{UART} \textit{half--duplex}, es decir, transmisión en los dos sentidos pero
+no de forma simultánea (figura \ref{fig:aldl}). La principal motivación de incluir estos sistemas no fue
 otra sino intentar reducir la contaminación de los vehículos teniendo
 acceso a esta información \cite{SistemaOBD2Historia}.
 
@@ -75,9 +75,9 @@ por la \ac{SAE}. Tiempo más tarde, el Gobierno de los Estados Unidos aplicó la
 medida a todos los vehículos del país \cite{SistemaOBD2Historia}.
 
 Esta medida llegaría a Europa en 1998, según la Directiva 98/69EG, que obligaba a
-todos los vehículos europeos a incluir susodicho conector. Específicamente, los
-automóviles de gasolina debían empezar a equiparlo en los modelos del año 2000; año 2003
-para vehículos diésel; y año 2005 para camiones \cite{SistemaOBD2Historia}.
+todos los vehículos europeos a incluir dicho conector. Específicamente, los
+automóviles de gasolina debían empezar a equiparlo en los modelos del año 2000; en el año 2003
+para vehículos diésel; y en el año 2005 para camiones \cite{SistemaOBD2Historia}.
 
 \subsection*{OBD--II}
 \ac{OBD}--II es la segunda generación del sistema de diagnósticos de abordo, sucesor
@@ -111,7 +111,7 @@ de indicadores para notificar la existencia de un fallo, sin especificar exactam
 cuál).
 
 El vehículo que incorpora un conector \ac{OBD}--II almacena la información sobre el
-fallo del vehículo para el mecánico que deba revisar el automóvil disponga de todos
+fallo del vehículo para que el mecánico que deba revisar el automóvil disponga de todos
 los datos posibles. Por otra parte, este estándar permite una comunicación directa
 con el vehículo mediante el envío de órdenes según un \ac{PID}. Por defecto, hay
 una serie de \ac{PID}s estándar que la gran mayoría de vehículos deben incluir\footnote{%
@@ -157,12 +157,12 @@ WiFi, Bluetooth y serie para la lectura local.
 
 Por lo general, las herramientas que hay se utilizan por mecánicos o fanáticos del
 sector para acceder a la información del estado del vehículo y ver los errores que
-pudiera tener/presentar. Sin embargo, tras una breve investigación, la mayoría
-de las casuísticas buscaba directamente monitorizar en el momento el estado
+pudiera tener. Sin embargo, tras una breve documentación sobre el tema, la mayoría
+de los casos buscaban directamente monitorizar en el momento el estado
 del vehículo para obtener información relativa a los consumos, contaminación,
 etc.
 
-Por ejemplo, en la investigación llevada a cabo por Rimpas \textit{et al.} \cite{rimpasOBDIISensorDiagnostics2020}, se utiliza
+Por ejemplo, en el trabajo de Rimpas \textit{et al.} \cite{rimpasOBDIISensorDiagnostics2020}, se utiliza
 un sensor \texttt{ELM327} para verificar que la información proporcionada por
 el puerto del vehículo y la presentada por la telemetría presente en el mismo
 (velocímetro y tacómetro) son coherentes entre sí (previa adaptación de los
