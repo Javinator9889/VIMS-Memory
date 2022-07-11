@@ -207,6 +207,7 @@
 \setlength{\headheight}{8pt}
 
 \newcolumntype{s}{>{\hsize=.5\hsize\linewidth=\hsize}X}
+\newcolumntype{P}[1]{>{\hsize=#1\hsize\linewidth=\hsize}X}
 \renewcommand\tabularxcolumn[1]{>{\Centering}m{#1}}
 % \newcolumntype{b}{>{\hsize=.75\hsize}X}
 \newcommand{\heading}[1]{\multicolumn{1}{c}{#1}}
@@ -262,12 +263,5 @@
 
 %% Bibliography
 \printbibliography
-
-%% Validation
-\appendix
-% \chapter{Validación de requisitos}\label{chap:validation}
-% \input{content/appendix/validation.tex}
-% \chapter{Diagramas que modelan el sistema}\label{chap:diagrams}
-% \input{content/appendix/diagrams.tex}
 
 \end{document}
