@@ -8,6 +8,7 @@
   \acro{CAN}{\textit{Controller Area Network}}
   \acro{CARB}{\textit{California Air Resources Board}}
   \acro{CRUD}{\textit{Create Read Update Delete}}
+  \acro{DMS}{\textit{Deadline Monotolic Scheduling}}
   \acro{DTC}{\textit{Diagnostic Trouble Codes}}
   \acro{ECU}{\textit{Engine Control Unit}}
   \acro{EOBD}{\textit{European On-Board Diagnostics}}
@@ -15,6 +16,7 @@
   \acro{GPIO}{\textit{General Purpose Input/Output}}
   \acro{GPS}{\textit{Global Positioning System}}
   \acro{GUI}{\textit{Graphical User Interface}}
+  \acro{ICPP}{\textit{Immediate Ceiling Priority Protocol}}
   \acro{IoT}{\textit{Internet of Things}}
   \acro{JOBD}{\textit{Japanese On-Board Diagnostics}}
   \acro{LTE}{\textit{Long--Term Evolution}}
@@ -36,6 +38,7 @@
   \acro{UTC}{\textit{Coordinated Universal Time}}
   \acro{VIMS}{\textit{Vehicle IoT Metrics System}}
   \acro{VIN}{\textit{Vehicle Identification Number}}
+  \acro{WCET}{\textit{Worst Case Execution Time}}
 \end{acronym}
 
 \begin{itemize}
@@ -59,6 +62,9 @@
   \item \ac{CRUD} -- funciones básicas que se realizan sobre una base de datos y que
         conforman el conjunto mínimo de operaciones que se deben poder realizar sobre
         una.
+  \item \ac{DMS} -- sistema de ordenación por prioridades en donde se asignan valores
+        de prioridad a las tareas según su plazo o \textit{deadline}, de forma que cuanto
+        menor es su plazo mayor será su prioridad.
   \item \ac{DTC} -- códigos de diagnóstico almacenados en un vehículo que identifican
         un error que tiene el vehículo o que ha tenido.
   \item \ac{ECU} -- centralita electrónica conectado a todos los sensores y sistemas
@@ -72,6 +78,12 @@
         trilateración \cite{GPS2021}.
   \item \ac{GUI} -- conjunto de componentes visuales que permiten a los usuarios
         interactuar con una aplicación de manera visual e intuitiva.
+  \item \ac{ICPP} -- protocolo de inversión de prioridades que se usa cuando múltiples
+        tareas intentan acceder al mismo recurso compartido en donde la tarea $t_i$ que
+        accede al recurso hereda una prioridad de techo equivalente a la de la tarea
+        de mayor prioridad que accede al recurso. Por ejemplo, si las tareas $t_1$ y
+        $t_2$ con prioridades $10$ y $5$ respectivamente acceden al recursos $r_1$, la
+        prioridad de la tarea $t_2$ será de $10$ mientras acceda a dicho recurso.
   \item \ac{IoT} -- concepto que se refiere a la interconexión digital de objetos 
         cotidianos con Internet \cite{InternetCosas2021}.
   \item \textit{jitter} -- retardo relativo que se produce en las comunicaciones
