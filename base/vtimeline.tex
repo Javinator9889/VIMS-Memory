@@ -1,0 +1,26 @@
+\usepackage{environ}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{array, booktabs, longtable}
+\usepackage{caption}
+\definecolor{LightSteelBlue3}{rgb}{.64,.71,.8}
+\newcommand{\foo}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+\newcommand{\bfoo}{\raisebox{2.1ex}[0pt]{\makebox[\dimexpr2\tabcolsep]%
+{\color{LightSteelBlue3}\textbullet}}}%
+\newcommand{\tfoo}{\makebox[\dimexpr2\tabcolsep]%
+{\color{LightSteelBlue3}$\boldsymbol \uparrow $}}%
+
+
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+\environbodyname\envbody
+
+\NewEnviron{vtimeline}[2][.9]{%
+    \captionsetup{singlelinecheck=false, font=blue, labelfont=sc, labelsep=quad} %
+    \begin{longtable}{@{\,}r <{\hskip 2pt} !{\foo} p{#1\linewidth}}%
+        \caption{#2} \\[-1.5ex] %
+        \toprule
+        \addlinespace[2ex]
+        \multicolumn{1}{c!{\tfoo}}{}& \\[-2.3ex]
+        \envbody
+    \end{longtable} %
+}

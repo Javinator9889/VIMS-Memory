@@ -1,55 +1,71 @@
 \begin{abstract}
-  En este documento se va a tratar el desarrollo del pArm, un proyecto
-  integral de ingeniería en el que se modela, diseña y construye un brazo
-  robótico utilizando tecnología de impresión 3D como base. El objetivo
-  principal es ofrecer una forma asequible y sencilla para que otra
-  persona pueda replicar el proyecto y adentrarse en el mundo de la robótica
-  por su cuenta.
+  En este documento se va a tratar el diseño y especificación de \ac{VIMS},
+  un proyecto de ingeniería que modela, diseña y arquitecta un sistema
+  conformado por un dispositivo embebido y un servidor en la nube. El
+  dispositivo se conecta al vehículo y transmite, mediante redes inalámbricas,
+  los datos al servidor, que hará todo el procesamiento y gestión.
+  El objetivo principal es devolverle al propietario del vehículo la
+  sensación de control sobre el mismo,
+  accediendo fácilmente a los datos recogidos por el automóvil así como
+  de los mensajes de error.
 
-  Para ello, primero se elicitarán los requisitos que permitirán posteriormente
-  modelar y diseñar el sistema de forma fiel. A su vez, se estudiarán las
-  características del sistema \textit{hardware} lo que permitirá desarrollar
-  y construir una placa de control que será la encargada de gestionar los
-  movimientos del brazo robótico.
+  Para ello, primero se recogerán datos de una muestra de conductores y
+  no conductores para identificar correctamente las necesidades de los
+  usuarios y ajustar mejor el producto.
+  
+  A continuación, se elicitarán los requisitos que permitirán posteriormente
+  modelar y diseñar el sistema de forma fiel.
 
-  Además, las fases de diseño anteriores simplifican el proceso de desarrollo
-  del \textit{software} que ejecutarán los sistemas y permitirán abordar el modelo
-  matemático que rige la estructura pantográfica del brazo robótico atendiendo a
-  las limitaciones tanto físicas como del sistema propuesto en sí.
+  La fase anterior permite trabajar directamente en los diagramas que modelan
+  el sistema, tanto a nivel de casuísticas como en qué estructura deberá tener.
+  Esto es fundamental porque simplificará y acotará las etapas de desarrollo
+  posteriores.
 
-  Por otro lado, se modelarán y diseñarán nuevas piezas que permitirán construir el
-  brazo robótico con otros tipos de componentes distintos a los del brazo original
-  así como con la nueva placa de control.
+  Además, se trabajará en el estudio del modelo matemático que permite traducir
+  los datos recibidos por los vehículos según el estándar \ac{OBD}--II. A su vez,
+  se estudiarán las características del sistema \textit{hardware} lo que permitirá
+  desarrollar y construir una placa de control que será la encargada de gestionar los
+  parámetros del dispositivo \ac{VIMS}.
 
-  Por último, se proponen futuras líneas de mejora que se consideran interesantes
-  a la hora de completar el proyecto. Se incluyen además en los anexos el código
-  fuente de las aplicaciones desarrolladas ya que se referencia directamente a lo
-  largo del presente documento.
+  Por último, se estudian las distintas tareas que compondrán el sistema \ac{VIMS}
+  mediante el análisis de tiempo de respuesta de las mismas. Dicho análisis
+  determina la planificabilidad del sistema y asegura un correcto y predecible
+  funcionamiento en cualquier circunstancia.
 \end{abstract}
 
 \selectlanguage{english}
 \begin{abstract}
-  The pArm development, an integral engineering project which models, designs and
-  builds a robotic arm using 3D printing technology as a basis is going. The main objective is to offer an affordable
-  and easy way for everyone to replicate this project so they can introduce
-  themselves within robotics community.
+  \ac{VIMS} design and specification project is an integral engineering development
+  which designs, models and architects a whole system built with an embedded
+  device and a remote cloud server. The device is attached to the driver's vehicle
+  and by using wireless communication transmits the data to the remote server,
+  which handles the entire processing and data generation.
+  The main objective is to bring the driver's sensation back of having control
+  over the vehicle, easily accessing to the entire information it provides
+  alongside error messages in an easy, accessible way.
 
-  Firstly, the requirements will be elicited which, will allow the modeling and the 
-  design of the system in further steps of the development. Concurrently, the
-  hardware characteristics will be studied in order to allow the development and
-  construction of the board that will handle the movements of the robotic arm.
+  Firstly, a quest will be done so relevant data is collected from a sample
+  of drivers and non-drivers which will help identifying their needs and
+  better adjusting the final product.
 
-  In addition, the mentioned design steps simplify the software development process
-  alongside the mathematical model, which is defined by both the physical structure
-  itself and the proposed system.
+  Then, the requirements will be elicited which will allow the modeling
+  and the design of the system in further steps of the development.
 
-  On the other hand, new pieces will be designed in order to make the robotic
-  manipulator compatible with new external componentes, compared to the 
-  original ones used in the $\mu$Arm, and the new designed board.
+  The previous step allows working directly with the diagrams that will
+  model the system in both behavioral and structural manners. This is
+  crucial as it will simplify and delimit the next steps of the project.
 
-  Finally, new improvements that the team considers interesting to complete
-  will be proposed. The annexes are included with the source code developed for 
-  the applications, as they are directly referenced in the present document.
+  In addition, there will be a mathematical analysis on how to translate
+  the data received from the vehicle itself into human-readable information,
+  based on the \ac{OBD}--II standard. Furthermore, hardware characteristics
+  will be studied which will allow developing and building a PCB which will
+  handle the parameters of the \ac{VIMS} device.
+
+  Finally, a task study will be done for \ac{VIMS} system. This will lead us
+  through the definition of the tasks themselves as well as the response time
+  analysis for the whole system. Thus the analysis determines if the entire
+  system can be scheduled asserting a well-known, correct behavior under any
+  circumstances.
 \end{abstract}
 
 \selectlanguage{spanish}

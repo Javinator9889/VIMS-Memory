@@ -1,0 +1,61 @@
+En este apartado se enuncia el trabajo que queda por realizar y distintas mejoras
+que pueden mejorar el desarrollo del producto o incrementar su valor final.
+
+Este conjunto de ideas pendientes nace directamente de aquellas tareas o fases
+que no se han podido implementar, pero también incluye ideas que han ido
+surgiendo durante el desarrollo del proyecto.
+
+En lo referente al trabajo pendiente, quedaría:
+
+\begin{itemize}
+  \item Completar el desarrollo del \textit{software} del dispositivo \ac{VIMS}.
+        Con el análisis del tiempo de respuesta debidamente realizado, se
+        puede completar la programación de la placa definiendo las tareas,
+        recursos compartidos y ajustándose a los tiempos estimados.
+  \item Realizar pruebas físicas con el dispositivo en sí, conectándolo a un
+        conector \ac{OBD}--II y comprobar que los datos leídos se corresponden
+        con los esperados.
+  \item Definir la \ac{API} de comunicación contra el servidor, con las operaciones
+        pertinentes según los diagramas de casos de uso y el diagrama de bloques
+        general del proyecto.
+  \item Definir un modelo de datos a almacenar. Lo más eficiente parece ser una
+        serie temporal y transmitir los datos vía JSON en un único tópico de
+        MQTT. Esto permite reducir las comunicaciones (solo se realiza una),
+        aumentar el conjunto de datos de forma dinámica, sin tener que añadir
+        ningún tópico MQTT nuevo y realizar el envío comprimido en un estándar
+        entendible por cualquier lenguaje de programación actual.
+  \item Desarrollar la plataforma web de interacción con el usuario. Actualmente,
+        se cuenta ya con un prototipo de muestra de datos, por lo que sería necesario
+        completar con la web que manejará toda la información y las interacciones.
+  \item Definir el modelo de generación de datos e información según se van recibiendo
+        por parte de los dispositivos \ac{VIMS} para enviar datos personalizados
+        a los participantes.
+  \item Desarrollar la aplicación móvil que se conectará directamente a los
+        dispositivos \ac{VIMS} para monitorizar la información del vehículo
+        mediante \ac{BLE}.
+\end{itemize}
+
+Por otra parte, en lo referente a las mejoras, se contempla:
+
+\begin{itemize}
+  \item Ampliar el espectro de muestra de los encuestados cambiando la dinámica
+        o la forma de obtener información. Se sugiere realizar entrevistas,
+        dinámicas supervisadas, etc. Esto es importante para no excluir de la
+        muestra a potenciales candidatos por edad, restricciones físicas, etc.
+  \item Desarrollar una aplicación web progresiva que sustituya a la interfaz
+        web y la aplicación móvil. Con esto se conseguiría realizar un único
+        desarrollo para todas las plataformas disponibles.
+  \item Introducir información relevante sobre los códigos de error disponibles.
+        En la web \url{https://www.obd-codes.com/trouble_codes/} se da muchísima
+        información sobre las causas de un error, signos evidentes del error y
+        cómo solucionarlo. Resultaría de gran interés incluir esa información
+        directamente en el análisis del estado del vehículo.
+  \item Incluir códigos \ac{PID} propietarios, además de los estándar. Usando
+        la información del \ac{VIN} por ejemplo, obtener el vehículo en que se
+        ha instalado \ac{VIMS} e intentar hacer uso de códigos \ac{PID} propietarios
+        para acceder a más información que se pueda obtener del vehículo.
+  \item Ofrecerle al usuario la posibilidad de obtener datos según sus propios
+        \ac{PID}s. Muy en la lógica de la idea anterior, si un usuario cuenta
+        con sus propios códigos \ac{PID} ofrecerle la posibilidad de que los
+        introduzca y que genere información a partir de esos datos.
+\end{itemize}

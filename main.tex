@@ -17,12 +17,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
 \usepackage[greek,english,spanish]{babel}
-% \usepackage[ddmmyyyy]{datetime}
 \usepackage{multirow}
 \usepackage{amsmath}
-\usepackage{fontspec}
-\usepackage[utf8x]{inputenc}   % utf8 is required
 \usepackage[xetex]{graphicx}
 \usepackage{csquotes}
 \usepackage{a4wide} %%Smaller margins, more text per page.
@@ -48,14 +46,12 @@
 \usepackage{ltxtable}
 \usepackage[style=ieee]{biblatex}
 \bibliography{base/TFM.bib}
-% \usepackage[nottoc]{tocbibind}
 \usepackage[official]{eurosym}
 \usepackage{gensymb}
 \usepackage{qrcode}
 \usepackage{numprint}
 \usepackage{mathtools}
 \usepackage[nice]{nicefrac}
-\usepackage[LGR,T1]{fontenc}
 \usepackage{%
     array, %%An ex­tended im­ple­men­ta­tion of the ar­ray and tab­u­lar en­vi­ron­ments which ex­tends the op­tions for col­umn for­mats, and pro­vides "pro­grammable" for­mat spec­i­fi­ca­tions
     booktabs, %%The pack­age en­hances the qual­ity of ta­bles in LATEX, pro­vid­ing ex­tra com­mands as well as be­hind-the-scenes op­ti­mi­sa­tion
@@ -79,6 +75,7 @@
     url,
     wasysym,
     pgfplots,
+    abstract,
 }
 
 \newcommand{\bigO}[1]{%
@@ -176,6 +173,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input of the metadata
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{base/vtimeline.tex}
 \input{base/metadata.tex}
 \input{base/pagetitle.tex}
 
@@ -235,6 +233,20 @@
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 \pagestyle{short}
 
+% \thispagestyle{empty}
+\chapter*{}
+% \begingroup
+% \raggedleft
+\begin{flushright}
+  \textit{A mi familia, la banda,\\
+    pero sobre todo a mi pareja, \\
+    que me ha acompañado en estos momentos \\
+    y a Norberto, por su inestimable apoyo y ayuda \\
+    (!`ya queda menos para la máquina del tiempo!)}
+\end{flushright}
+% \endgroup
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Table of contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,8 +272,5 @@
 \newpage
 \pagenumbering{arabic}
 \input{content/content.tex}
-
-%% Bibliography
-\printbibliography
 
 \end{document}
