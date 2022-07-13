@@ -1,5 +1,5 @@
 \usepackage{environ}
-\usepackage[TS1,T1]{fontenc}
+% \usepackage[TS1,T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{array, booktabs, longtable}
 \usepackage{caption}
@@ -17,7 +17,7 @@
 \NewEnviron{vtimeline}[2][.9]{%
     \captionsetup{singlelinecheck=false, font=blue, labelfont=sc, labelsep=quad} %
     \begin{longtable}{@{\,}r <{\hskip 2pt} !{\foo} p{#1\linewidth}}%
-        \caption{#2} \\[-1.5ex] %
+        \caption{#2} \\ %
         \toprule
         \addlinespace[2ex]
         \multicolumn{1}{c!{\tfoo}}{}& \\[-2.3ex]

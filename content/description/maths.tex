@@ -80,7 +80,7 @@ Si el valor fuese, por ejemplo, \texttt{BE1FA813} se tendría que:
       \hline
       \textbf{Binario}     & \texttt{1}                       & \texttt{0}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{0}                       & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{1}  \\
       \hline
-      \textbf{¿Soportado?} & \done                            & \wontfix                         & \done                            & \done                            & \done                            & \done                            & \done                            & \wontfix                         & \wontfix    & \wontfix    & \wontfix    & \done       & \done       & \done       & \done       & \done       & \done       & \wontfix    & \done       & \wontfix    & \done       & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \done       & \wontfix    & \wontfix    & \done       & \done       \\
+      \textbf{?`Soportado?} & \done                            & \wontfix                         & \done                            & \done                            & \done                            & \done                            & \done                            & \wontfix                         & \wontfix    & \wontfix    & \wontfix    & \done       & \done       & \done       & \done       & \done       & \done       & \wontfix    & \done       & \wontfix    & \done       & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \done       & \wontfix    & \wontfix    & \done       & \done       \\
       \hline
       \textbf{PID}         & \texttt{01}                      & \texttt{02}                      & \texttt{03}                      & \texttt{04}                      & \texttt{05}                      & \texttt{06}                      & \texttt{07}                      & \texttt{08}                      & \texttt{09} & \texttt{0A} & \texttt{0B} & \texttt{0C} & \texttt{0D} & \texttt{0E} & \texttt{0F} & \texttt{10} & \texttt{11} & \texttt{12} & \texttt{13} & \texttt{14} & \texttt{15} & \texttt{16} & \texttt{17} & \texttt{18} & \texttt{19} & \texttt{1A} & \texttt{1B} & \texttt{1C} & \texttt{1D} & \texttt{1E} & \texttt{1F} & \texttt{20} \\
       \hline
@@ -314,9 +314,9 @@ está en marcha. Los datos a los que se accede son:
     \hline
     \textbf{Descripción}     & Consumo actual del motor  \\
     \hline
-    \textbf{Valor mínimo}    & $0~\nicefrac{L}{h}$       \\
+    \textbf{Valor mínimo}    & $0~\nicefrac{l}{h}$       \\
     \hline
-    \textbf{Valor máximo}    & $3212.75~\nicefrac{L}{h}$ \\
+    \textbf{Valor máximo}    & $3212.75~\nicefrac{l}{h}$ \\
     \hline
     \textbf{Fórmula}         &                           %
     \begin{equation*}
@@ -383,9 +383,9 @@ está en marcha. Los datos a los que se accede son:
     \hline
     \textbf{Descripción}     & Torque de referencia del motor \\
     \hline
-    \textbf{Valor mínimo}    & $0~N \cdot M$                  \\
+    \textbf{Valor mínimo}    & $0~Nm$                  \\
     \hline
-    \textbf{Valor máximo}    & $65535~N \cdot M$              \\
+    \textbf{Valor máximo}    & $65535~Nm$              \\
     \hline
     \textbf{Fórmula}         &                                %
     \begin{equation*}
@@ -393,7 +393,7 @@ está en marcha. Los datos a los que se accede son:
     \end{equation*}                                \\
     \hline
   \end{tabularx}
-  \caption{\ac{PID} \texttt{63} -- torque de referencia del motor, en $N \cdot M$.}
+  \caption{\ac{PID} \texttt{63} -- torque de referencia del motor, en $Nm$.}
 \end{table}
 
 \begin{table}[H]
@@ -413,7 +413,7 @@ está en marcha. Los datos a los que se accede son:
     \textbf{Fórmula}         &                            %
     \begin{equation*}
       \begin{aligned}
-        A_1 & = 1 \Rightarrow \text{soportado} \\
+        A_1 & = 1 \Longrightarrow \text{soportado} \\
         R   & = \frac{256C + D}{1000}
       \end{aligned}
     \end{equation*}                            \\

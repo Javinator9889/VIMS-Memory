@@ -24,14 +24,14 @@ el propósito de este proyecto. Se consideraron los siguientes dispositivos (tab
       \hline
       1           & LILYGO\textsuperscript{\textregistered} TTGO T-SIM7000G                      & \url{https://es.aliexpress.com/item/4000542688096.html}    & \url{https://github.com/Xinyuan-LilyGO/LilyGO-T-SIM7000G}    & La placa más completa. Cuenta con conexión SIM %
       LTE CAT4, alimentación externa mediante batería, módulo GPS y módulo SIM.%
-      El precio oscila entre los 38\textasciitilde40€. \textit{Firmware} actualizado con%
+      El precio oscila entre los 38\textasciitilde40 \EUR{}. \textit{Firmware} actualizado con%
       regularidad. Módulo SIM 7000G.                                                                                                                                                                                                                                          \\
       \hline
       2           & LILYGO\textsuperscript{\textregistered} Módulo TTGO SIM7600E-H/SIM7600G-H R2 & \url{https://es.aliexpress.com/item/1005001705250713.html} & \url{https://github.com/Xinyuan-LilyGO/LilyGO-T-SIM7600X}    &                                                %
       Placa bastante completa pero más cara. En características, parece similar a la %
       anterior (1). Tiene dos tomas USB Type-C y cuenta con un módulo SIM 7600G. %
       El firmware parece que hace tiempo que no se actualiza. El precio oscila entre %
-      los 55\textasciitilde75€.                                                                                                                                                                                                                                               \\
+      los 55\textasciitilde75\EUR{}.                                                                                                                                                                                                                                               \\
       \hline
       3           & LILYGO\textsuperscript{\textregistered} Módulo inalámbrico TTGO t-call       & \url{https://es.aliexpress.com/item/4000959701330.html}    & \url{https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800} &                                                %
       Placa bastante limitada en recursos con soporte para tarjetas SIM. A diferencia %
@@ -41,11 +41,11 @@ el propósito de este proyecto. Se consideraron los siguientes dispositivos (tab
       \newline
       Por otra parte, la banda de la tarjeta SIM parece ir en la banda GSM/2G y %
       permitiría hacer solo llamadas o enviar SMS. El precio se encuentra en torno a %
-      los 16€. Sin embargo, esta placa no se consideraría una opción válida ya que solo %
+      los 16\EUR{}. Sin embargo, esta placa no se consideraría una opción válida ya que solo %
       permite hacer llamadas/enviar SMS.                                                                                                                                                                                                                                      \\
       \hline
       4           & LILYGO\textsuperscript{\textregistered} TTGO t-call y SIM800C                & \url{https://es.aliexpress.com/item/4001274909689.html}    & \url{https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800} &                                                %
-      Hermana de la placa anterior con algunas prestaciones más. Aplican los mismos comentarios que en la anterior. El precio oscila en torno a los 16\textasciitilde17€.                                                                                                     \\
+      Hermana de la placa anterior con algunas prestaciones más. Aplican los mismos comentarios que en la anterior. El precio oscila en torno a los 16\textasciitilde17 \EUR{}.                                                                                                     \\
       \hline
     \end{tabularx}
     \caption{Lista de los distintos dispositivos que se barajaron durante las primeras fases del proyecto.}
@@ -185,7 +185,7 @@ De todos los terminales disponibles, \ac{VIMS} solo hace uso de cuatro:
   \item[\texttt{ChassisGround}] ofrece una conexión de tierra al chasis del vehículo,
     y es la que se debe usar habitualmente para encender el dispositivo. Existe otra
     toma ``\texttt{SignalGround}'' que se usa para depurar errores en la comunicación
-    \ac{CAN}, ya que permite conectar un osciloscopio y analizar la onda generada
+    \ac{CAN}, ya que permite conectar un osciloscopio y analizar la onda limpia generada
     por las comunicaciones.
   \item[\texttt{CAN+}] es el valor positivo de la señal \ac{CAN}, que se debe conectar
     al terminal correspondiente para poder interpretar los mensajes recibidos por
@@ -320,7 +320,7 @@ La idea fundamental detrás de este divisor de tensión es:
 \begin{itemize}
   \item Con valores de las resistencias tan elevados, la corriente que circula
         por este circuito es mínima, ya que no interesa tener picos de entrada
-        en el dispositivo y por reducir el consumo.
+        en el dispositivo y se reduce el consumo.
   \item Los vehículos, cuando están ``en frío'' (sin arrancar, parados durante
         cierto tiempo) dan un valor de tensión por debajo de los $12V$ habitualmente,
         signo de que se está alimentando de la batería y que esta se está descargando.
@@ -336,7 +336,7 @@ La idea fundamental detrás de este divisor de tensión es:
 \end{itemize}
 
 Con estas ideas en mente, se puede observar cómo el divisor de tensión anterior está
-diseñado para detectar una tensión máxima de $15V$ (asumiendo que $\max{V_O} = 3.3V$,
+diseñado para detectar una tensión máxima de $15V$ (asumiendo que $\max\left(V_O\right) = 3.3V$,
 que es la tensión con la que funciona la placa):
 
 \begin{equation*}

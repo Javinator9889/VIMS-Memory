@@ -5,11 +5,11 @@ de qué les gustaría tener en su vehículo.
 Este proyecto pretende en un futuro salir a mercado y suplir características que los
 usuarios echan en falta en sus correspondientes medios de transporte. Como en principio
 funciona con cualquier vehículo que cuente con \ac{OBD}--II, las respuestas no se han
-limitado a aquellos conductores que condujesen turismos sino cualquier tipo de
+limitado a aquellos conductores que tuviesen turismos sino cualquier tipo de
 automóvil: motocicleta, camión, etc.
 
 Es importante destacar que el estudio tiene varios sesgos que han restringido
-y delimitado las respuestas que se han registrado:
+y delimitado las respuestas que se han registrado, a saber:
 
 \begin{enumerate}
   \item Se ha realizado un cuestionario usando Google Forms, una plataforma de Google
@@ -20,26 +20,27 @@ y delimitado las respuestas que se han registrado:
         Esto permite obtener datos más fidedignos y acotados según la población que
         respondiera. Sin embargo, tiene una limitación implícita: restringe el acceso
         a aquellos con conocimientos ``suficientes'' acerca de la plataforma. Pese
-        a que el producto pretende ser lo más accesible posible, no hay que olvidar
-        que este tipo de tecnologías permanecen desconocidas para una gran parte
-        de la población con escasos conocimientos acerca de Internet o de las
-        nuevas tecnologías. Se comentará más adelante, pero esto se ve reflejado
+        a que el producto de Google pretende ser lo más accesible posible, no hay
+        que olvidar que este tipo de tecnologías permanecen desconocidas para una
+        gran parte de la población con escasos conocimientos acerca de Internet o
+        del mundo informático. Se comentará más adelante, pero esto se ve reflejado
         principalmente en la edad media de quienes respondieron el cuestionario.
 
         Por otra parte, al ser un cuestionario aparece otra limitación implícita
-        y es la validación y verificación de las respuestas: se confía en la buena
+        que es la validación y verificación de las respuestas: se confía en la buena
         fe de los participantes y en la calidad de sus respuestas. Igualmente, se
         desarrolló el cuestionario junto con una psicóloga que ayudó a definir
-        preguntas cerradas e incluir ciertas respuestas de control. Por otra parte,
+        preguntas cerradas e incluir algunas que sirvieron de control. Por otra parte,
         se usó el propio mecanismo que ofrece este servicio de Google para ordenar
         aleatoriamente las respuestas del cuestionario (y que eso sirviese también
         como control).
 
   \item Los encuestados fueron contactados principalmente por la red social Twitter,
-        mediante la difusión con ``me gusta'' y ``retweet''. También se usaron otros
+        mediante la difusión con ``me gusta'' y ``\textit{retweet}''. También se usaron otros
         medios de comunicación (como el correo UPM y Telegram/WhatsApp), pero el
         mayoritario fue el ya mencionado. Nuevamente, esto introduce un sesgo tanto
-        por edad como por accesibilidad.
+        por edad como por accesibilidad, ya que pese a ser una red social ampliamente
+        utilizada limita el acceso a aquellos que la usen con relativa frecuencia.
 
   \item Junto con la encuesta, se realizó un sorteo entre aquellos que respondiesen
         a la misma de un cheque regalo de Amazon valorado en 20\EUR{}. Si bien este
@@ -61,6 +62,8 @@ y delimitado las respuestas que se han registrado:
         que trabajar, este posible suceso reduciría también la variedad de la población
         y la calidad del estudio realizado.
 \end{enumerate}
+
+Sin más demora, se van a analizar las distintas respuestas.
 
 La primera pregunta que se realizó a los encuestados era si eran conductores o no.
 Los datos revelan que el $72.7\%$ ($16$) de los encuestados son conductores, mientras que el
@@ -90,7 +93,7 @@ reflejado en el histograma \ref{fig:carnet-time-hist}:
 \end{figure}
 
 Con respecto a los tipos de carnet, el $100\%$ de los encuestados (que dijeron ser
-conductores) tiene el carnet tipo B. Se vio además que el $18.8\%$ tiene además los
+conductores) tiene el carnet tipo B. Se vio que el $18.8\%$ tiene además los
 carnets relativos a las motocicletas (muy posiblemente, los encuestados tienen el
 carnet tipo ``A'' que les habilita automáticamente para aquellos de menor nivel,
 como el AM, A1 y A2); y únicamente un encuestado tiene el carnet tipo C, que permite
@@ -174,7 +177,7 @@ Una vez se indagó acerca de la información que identifica a la muestra, se pre
 directamente por el vehículo con el que contaban así como las características del
 mismo. Para esta sección, se han dividido las preguntas en tres categorías:
 \textit{básico}, \textit{habitual} y \textit{premium}. Dichas categorías se crean
-según el porcentaje de uso habitual mundial de las características que se
+según el porcentaje de presencia habitual mundial de las características que se
 enumeran en la tabla \ref{tab:car-specs}:
 
 \begin{table}[H]
@@ -289,8 +292,8 @@ antigüedad.
 
 Esta información es muy relevante ya que gran parte de la muestra se corresponde con
 vehículos bastante nuevos, y eso explica en parte el porqué de los resultados obtenidos
-en la encuesta, representada por la figura \ref{fig:vehicle-specs}. Cabe destacar
-que la moda de la distribución es:
+en la encuesta acerca de las características, representada por la figura \ref{fig:vehicle-specs}.
+Cabe destacar que la moda de la distribución es:
 
 \begin{equation}\label{eq:vehicle-age-mode}
   M\left(X\right) = 2
@@ -421,8 +424,8 @@ y también ha permitido definir con mayor certeza ciertas restricciones del cues
 como su accesibilidad. También ha permitido descubrir el porqué de ciertas puntuaciones
 especialmente elevadas.
 
-La primera pregunta que se realizó fue: ``\textbf{¿Qué te gustaría poder medir de tu coche?}''.
-Ante dicha pregunta, hay ciertas ideas interesantes:
+La primera pregunta que se realizó fue: ``\textbf{?`Qué te gustaría poder medir de tu coche?}'',
+de la cual se extrajeron ciertas ideas interesantes:
 
 \begin{itemize}
   \item El velocímetro en digital, que explica el porqué tiene una puntuación tan alta.
@@ -443,15 +446,15 @@ la primera etapa de diseño del proyecto, y reafirman lo que se busca desde el
 comienzo: que el usuario recupere el control sobre su vehículo.
 
 A continuación, se realiza una segunda pregunta muy parecida a la primera que se usó
-como control (\textbf{¿Qué información echas en falta en tu uso habitual del coche?}).
+como control (\textbf{?`Qué información echas en falta en tu uso habitual del coche?}).
 Esta pregunta se ha ignorado ya que se utilizó principalmente para verificar la
 coherencia entre las respuestas. Algunos usuarios aportaron algunas ideas nuevas
 de elementos que querrían medir, otros copiaron la respuesta anterior (que se
 consideró válido dada la índole de la pregunta) y otros hicieron referencia a
-características específicas de la pregunta anterior.
+características ya descritas en la pregunta anterior.
 
 Otra pregunta que se hizo fue ``\textbf{Si tuvieras que añadirle una característica al
-coche, ¿cuál sería?}'', en donde el usuario se podía poner ``imaginativo'' y comentar
+coche, ?`cuál sería?}'', en donde el usuario se podía poner ``imaginativo'' y comentar
 qué querría que tuviese su vehículo. De las respuestas, las hubieron muy variadas
 y distintas, y solo se muestran aquí algunas que podrían ser implementadas con
 \ac{VIMS}:
@@ -496,9 +499,9 @@ preguntas y se realizó un análisis sobre dichas respuestas.
 
 Por una parte, se indicó que responder y puntuar las características no resultó
 cómodo, sobre todo en dispositivos móviles donde la pantalla es mucho más pequeña.
-Se usó el formato matricial ofrecido por Google Forms, pero el problema resultó
-de que la matriz fuese $20 \times 20$, excesivamente grande en según qué dispositivo
-se respondiese al cuestionario.
+Se usó el formato matricial ofrecido por Google Forms, pero el problema surgió
+por el tamaño de la matriz, $20 \times 20$, excesivamente grande en según qué
+dispositivo se respondiese al cuestionario.
 
 Otra sugerencia que se repitió con más o menos frecuencia fue la de la accesibilidad
 y fluidez del producto final. Un encuestado con un vehículo relativamente nuevo
@@ -515,8 +518,8 @@ estudió la ``calidad'' de las respuestas, en especial en los sujetos cuya edad
 era bastante superior a la media. Es notorio que dichos sujetos, en las preguntas
 de desarrollo, indicasen en todas las ocasiones ``\textit{Ns/nc}'' (\textit{No Sabe/No Contesta}).
 Tras evaluarlo con cierto detenimiento (teniendo en cuenta la buena fe de los
-participantes y sabiendo quiénes son), se deduce que el cuestionario resultó
-excesivamente largo y complejo para los que lo respondieron, en especial el sector
+participantes y sabiendo personalmente quiénes son), se deduce que el cuestionario resultó
+excesivamente largo y complejo para el sector
 más longevo de la población. Esto pudo dificultar el responder al mismo debido
 a la fatiga, el tiempo que llevaba o lo técnico que pudiera resultar el lenguaje,
 afectando directamente a la calidad de las respuestas.
