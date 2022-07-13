@@ -54,6 +54,7 @@
 \usepackage[nice]{nicefrac}
 \usepackage{%
     abstract,
+    afterpage,
     array, %%An ex­tended im­ple­men­ta­tion of the ar­ray and tab­u­lar en­vi­ron­ments which ex­tends the op­tions for col­umn for­mats, and pro­vides "pro­grammable" for­mat spec­i­fi­ca­tions
     booktabs, %%The pack­age en­hances the qual­ity of ta­bles in LATEX, pro­vid­ing ex­tra com­mands as well as be­hind-the-scenes op­ti­mi­sa­tion
     dcolumn, %%
@@ -173,12 +174,18 @@
 % Greek letters
 % \newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
 
+%% Blank pages
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Input of the metadata
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{base/vtimeline.tex}
 \input{base/metadata.tex}
-\input{base/pagetitle.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Creation of the header
@@ -231,12 +238,12 @@
 \settttsize{\footnotesize}
 \ActivateVerbatimLigatures
 
-%% Include table of contents and history using roman numbering
-\pagenumbering{roman}
-\DeclareGraphicsExtensions{.pdf,.jpg,.png}
-\pagestyle{short}
+\input{base/pagetitle.tex}
+\input{base/secondtp.tex}
 
-\chapter*{}
+\thispagestyle{empty}
+\topskip0pt
+\vspace*{\fill}
 \begin{flushright}
   \textit{A mi familia, a la banda,\\
     pero sobre todo a mi pareja, \\
@@ -244,8 +251,14 @@
     y a Norberto, por su inestimable apoyo y ayuda \\
     (!`ya queda menos para la máquina del tiempo!)}
 \end{flushright}
-\newpage
+\vspace*{\fill}
 
+\newpage
+\afterpage{\blankpage}
+%% Include table of contents and history using roman numbering
+\pagenumbering{roman}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\pagestyle{short}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Table of contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

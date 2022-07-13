@@ -81,7 +81,8 @@ mientras que la escritura de datos no primitivos (\textit{arrays}, estructuras, 
 se realizará en múltiples ciclos de instrucción.
 
 Con esto en mente, se establecen los siguientes $C_i$ y $r^i_j$ para las tareas del sistema
-(tabla \ref{tab:ci-rij}):
+(tabla \ref{tab:ci-rij})\footnote{Tanto los tiempos de cómputo $C_i$ como los tiempos
+de acceso a recursos $R_i$ están indicados en milisegundos.}:
 
 \begin{table}[H]
   \centering
@@ -102,7 +103,7 @@ Con esto en mente, se establecen los siguientes $C_i$ y $r^i_j$ para las tareas 
     $t_{11}$ & $50$  & -     & -     & $2$   \\
     \hline
   \end{tabular}
-  \caption{Tiempos de cómputo y acceso a recursos estimados para las tareas del sistema.}
+  \caption{Tiempos de cómputo y acceso a recursos estimados (en milisegundos) para las tareas del sistema.}
   \label{tab:ci-rij}
 \end{table}
 

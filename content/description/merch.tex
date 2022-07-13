@@ -72,7 +72,7 @@ $27.3\%$ ($6$) restantes no, del total que fueron $22$ (figura \ref{fig:drivers-
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{images/drivers-nodrivers.png}
-  \caption{Gráfico de tarta que muestra quiénes de los encuestados son conductores ($72.7\%$) y quiénes no ($27.3\%$).}
+  \caption{Proporción de conductores (en azul) frente a no conductores (en rojo) sobre el total de encuestas realizadas.}
   \label{fig:drivers-nodrivers}
 \end{figure}
 
@@ -113,7 +113,7 @@ Esta pregunta se realizó por dos motivos:
 
 Es necesario decir que solo se preguntó por la edad a aquellas personas que respondieron
 afirmativamente a ser conductores. Esto se hizo así debido a que sus respuestas han
-conformado el dato más relativo a la hora de realizar la investigación, y se hace así
+conformado el dato más relevante a la hora de realizar la investigación, y se hace así
 también estadísticamente.
 
 Se tiene pues que:
@@ -128,13 +128,13 @@ Se tiene pues que:
   \end{aligned}\right.
 \end{equation}
 
-Se construyó además un gráfico de tarta (figura \ref{fig:ages}) que muestra cómo
-quedan distribuidas las edades de los participantes:
+Se presenta a continuación (figura \ref{fig:ages}) la proporción de edades de los
+encuestados frente al total de encuestas realizadas.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{images/ages-pie.png}
-  \caption{Gráfico de tarta que muestra la distribución de edades (valor previo al paréntesis) y su frecuencia en porcentaje.}
+  \caption{Distribución de edades de los encuestados (valor previo al paréntesis) y su proporción frente al total.}
   \label{fig:ages}
 \end{figure}
 
@@ -286,7 +286,7 @@ vehículos, que se habló anteriormente en la figura \ref{fig:vehicle-specs}:
 \end{equation}
 
 Como se puede observar en los cuartiles \ref{eq:vehicle-age-quartiles}, el $25\%$ de
-la muestra se localiza en los primeros $\left[0, 3.5\right]$ años de antigüedad, y el
+la muestra se localiza en los primeros $\left[0, 3'5\right]$ años de antigüedad, y el
 $75\%$ de la muestra es abarcada para todos los vehículos de hasta $14.5$ años de
 antigüedad.
 
@@ -333,7 +333,7 @@ realizadas se muestran en la tabla \ref{tab:quest-options}:
 Es importante destacar que la tabla anterior contiene valores puramente técnicos,
 en donde solo aquellos con un conocimiento más específico entenderán y sabrán
 interpretar; y otros más genéricos que en principio todos los conductores conocen
-(como velocidad actual, temperatura del aceite, \dots).
+(como velocidad actual, temperatura del aceite del motor, \dots).
 
 Las respuestas a las preguntas anteriores se han estructurado en dos tablas: una
 primera que representa toda la población en general, y una segunda en donde solo
@@ -481,8 +481,8 @@ fueron:
 Estas respuestas fueron muy útiles para generar y definir los requisitos de usuario:
 a fin de cuentas, el usuario es el \textit{stakeholder} principal y satisfacer sus
 necesidades debe ser la principal prioridad (y desde aquí, muchas gracias a todos
-ellos por responder). Se detalla más de qué se implementa finalmente en el punto
-\ref{ssec:user-req}.
+ellos por responder). La selección final de los datos que serán leídos
+por \ac{VIMS} se detalla en el punto \ref{ssec:user-req}.
 
 Como se ha mencionado anteriormente, el cuestionario presenta de partida ciertas
 restricciones para aquellos que quieran participar. Por una parte, al ser un cuestionario
@@ -508,12 +508,14 @@ y fluidez del producto final. Un encuestado con un vehículo relativamente nuevo
 mencionaba lo molesto que le resulta interactuar con la pantalla de su vehículo y notar
 retardo en las acciones, que se quedase bloqueado abriendo aplicaciones, etc., lo cual
 le transmitía la sensación de que contaba con un vehículo antiguo y de mala calidad.
+Esto se produce, entre otros factores, porque no se desarrollan labores de optimización
+en los dispositivos integrados de los vehículos, en este caso, la pantalla.
 
 Siguiendo la misma línea, otro usuario mencionaba que querría que el producto final
 fuese simple y fácil de entender a primera vista, evitando el exceso de datos y la
 complejidad de la interfaz de usuario final.
 
-Por otro lado, finalizando con lo que se estudió al inicio de este apartado, se
+Por otro lado, finalizando con lo que se planteó al inicio de este apartado, se
 estudió la ``calidad'' de las respuestas, en especial en los sujetos cuya edad
 era bastante superior a la media. Es notorio que dichos sujetos, en las preguntas
 de desarrollo, indicasen en todas las ocasiones ``\textit{Ns/nc}'' (\textit{No Sabe/No Contesta}).
@@ -527,7 +529,7 @@ afectando directamente a la calidad de las respuestas.
 Se vio cómo además ciertos usuarios tuvieron dificultad al responder al cuestionario
 debido a los tecnicismos o palabras propias del sector que pudieran usarse. Un
 ejemplo es la palabra ``odómetro'' (también conocido como cuentakilómetros, aunque
-nunca se uso ese sinónimo ni se mencionó), que resultó ser ajena para varios encuestados.
+nunca se uso ese sinónimo ni se mencionó), que resultó ser desconocida para varios encuestados.
 
 Estas restricciones se comentarán más adelante, en el punto \ref{chap:conclussions},
 sobre cómo abordarlas si se volviese a repetir el estudio, junto con ciertas mejoras

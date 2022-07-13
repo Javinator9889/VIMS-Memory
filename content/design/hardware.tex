@@ -10,9 +10,9 @@ así como de imágenes que muestran el resultado final.
 
 \subsection{Selección de la placa}
 Antes de desarrollar el \textit{hardware} o siquiera materializar la idea, se dedicó
-un tiempo de investigación a ver qué había en el mercado que pudiese servir para
-el propósito de este proyecto. Se consideraron los siguientes dispositivos (tabla
-\ref{tab:devices}):
+un tiempo de a documentación para determinar qué productos había en el mercado
+que pudiesen servir para el propósito de este proyecto. Se consideraron los
+siguientes dispositivos (tabla \ref{tab:devices}):
 
 
 \begin{landscape}
@@ -239,9 +239,9 @@ primer regulador hace una primera reducción del voltaje y el segundo la restant
 Cabe destacar que el primer regulador sigue un circuito recomendado por el fabricante
 que ayuda a reducir el ruido en el pin de ajuste gracias al condensador \texttt{C3}.
 El diodo \texttt{D3} se introduce para descargar el condensador \texttt{C3} en caso de
-que laa salida se conecte a tierra. En este caso, como la corriente de entrada viene
+que la salida se conecte a tierra. En este caso, como la corriente de entrada viene
 directamente desde la batería o el alternador del vehículo, es posible que haya
-bastantes fluctuaciones en la señal de entrada y este circuito se ha considerado
+bastantes fluctuaciones en la alimentación de entrada y este circuito se ha considerado
 fundamental para el desarrollo del sistema eléctrico del dispositivo.
 
 La ecuación de funcionamiento que ofrece el fabricante para este dispositivo es
@@ -255,9 +255,8 @@ De la ecuación anterior, hay que tener en cuenta ciertos datos:
 
 \begin{itemize}
   \item Por construcción, el fabricante establece $V_{Ref} = 1.25V$.
-  \item Por construcción, la corriente $I_{Adj}$ tiene un valor pico de $100~\mu A$
-        y habitualmente ese término de la ecuación es despreciado ya que no aporta
-        un cambio significativo en la salida.
+  \item Por construcción, la corriente $I_{Adj}$ tiene un valor pico de $100~\mu A$.
+        En este caso no se tiene en consideración por no ser significativo.
 \end{itemize}
 
 Por ende, la ecuación que se obtiene para el regulador es (cambiando los nombres de
@@ -297,7 +296,7 @@ entrada, este regulador no necesita ninguna configuración más.
 
 El último elemento que se ha introducido en el sistema es el voltaje de referencia
 marcado en la salida como ``\texttt{ARef}''. Este pequeño circuito no es más que un
-divisor de tensión el cual se usará para saber qué valor de corriente es la que ofrece
+divisor de tensión el cual se usará para saber qué valor de tensión es la que ofrece
 el vehículo al que se está conectado. La intención es que ese pin vaya conectado a un
 \ac{ADC} de la placa T-SIM7000G y se use dicho convertidor para obtener en digital
 el valor equivalente a la corriente de entrada mediante una sencilla operación matemática
@@ -410,7 +409,9 @@ siguientes particularidades:
         ninguna operación).
   \item Se añade un condensador de $100~nF$ cerámico a la entrada de alimentación
         para asegurar un correcto funcionamiento en cualquier velocidad de transmisión
-        de datos y voltajes de entrada.
+        de datos y voltajes de entrada, según en la documentación. Además, también
+        sirve como condensador de desacoplo de cara a amortiguar pequeñas fluctuaciones
+        de tensión que puedan surgir en la entrada del regulador.
 \end{itemize}
 
 Por otra parte, se añade un LED RGB que se usará para mostrar información visual
@@ -462,7 +463,7 @@ Como se puede apreciar en la figura \ref{fig:pcb-design}, se ha realizado el enr
 por dos capas. En la capa inferior está principalmente todo el puente entre las
 conexiones del \ac{OBD}--II y otros componentes que lo requerían por ubicación. En
 la capa superior está enrutado todos los componentes del sistema: reguladores de
-tensión, LEDs, transceptor del bus \ac{CAN}, \dots El fusible se encuentra situado
+tensión, LEDs, transceptor del bus \ac{CAN}, etc. El fusible se encuentra situado
 en la esquina superior derecha, justo al lado de la toma de $12V$ del vehículo,
 y es quien alimenta a todo el circuito. Si no hay fusible colocado (o se ha fundido)
 ningún componente tendrá alimentación. Sin embargo, el puente \ac{OBD}--II seguirá

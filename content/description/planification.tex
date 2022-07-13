@@ -54,5 +54,12 @@ la tarea pertinente:
 Las tareas anteriores deberán planificarse siguiendo un esquema de planificación de
 tiempo real que contemple frecuencia de activación, retardos relativos producidos
 por la interdependencia de las tareas, tiempo de cómputo estimado, prioridades
-según frecuencia, acceso a recursos compartidos y herencia de prioridad por acceso
-a dichos recursos (prioridad de techo).
+según frecuencia, acceso a recursos compartidos.
+
+Por otra parte, el algoritmo de planificación será el \ac{ICPP} (herencia de prioridad de techo).
+Este algoritmo se usa porque permite controlar el acceso a los recursos compartidos
+por múltiples tareas al mismo tiempo y es óptimo a la hora de evitar inversión
+de prioridad ilimitada por las tareas e interbloqueos causados por regiones críticas
+mal anidadas. La única contrapartida es que requiere de un planificador que soporte
+la asignación dinámica de prioridades, ya que las tareas solo heredan dicha
+prioridad de techo cuando acceden al recurso.

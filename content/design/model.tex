@@ -362,7 +362,7 @@ y la resolución de las mismas.
 \subsection{Diagramas de bloques}\label{ssec:block-diagrams}
 
 Los diagramas de bloques ofrecen una visión genérica del sistema en su conjunto. Para
-este sistema, se han definido tres diagramas de bloques: el primero define a \textit{grosso modo}
+este sistema, se han definido tres diagramas de bloques: el primero define \textit{grosso modo}
 cómo se compone el sistema embebido que irá en el vehículo, con sus respectivos
 componentes y condiciones; el segundo, define la arquitectura del servidor, las conexiones
 con la base de datos y la \ac{API} para consulta de datos externa. Finalmente, el
@@ -419,7 +419,7 @@ recibe un byte que se correspondería al \ac{PID} y devuelve los bytes con los d
 asociados. Al igual que el subsistema anterior, se plantea la restricción de que
 el \ac{OBD}--II esté desconectado. Esto se hará confirmando que el $V_{in} \ge 3.3V$
 aunque, en la vida real, esta restricción no existe dado que el sistema \ac{OBD}--II
-del vehículo siempre está proveyendo de $12V$ al conector (sin embargo, se ha contemplado
+del vehículo siempre ofrece un voltaje de alimentación de $12V$ en el conector (sin embargo, se ha contemplado
 porque existe la posibilidad de que la placa esté encendida mediante USB sin
 conexión al vehículo).
 
