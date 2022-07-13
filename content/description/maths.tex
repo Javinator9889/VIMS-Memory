@@ -1,0 +1,561 @@
+El estudio matemático va muy ligado al punto anterior (\ref{sec:merch}) ya que se
+analizan los parámetros de \ac{OBD}--II y su fórmula asociada que permite
+``traducir'' de un conjunto de \textit{bytes} a un dato legible por el humano.
+
+Antes de dar paso a las ecuaciones en sí, es importante entender cómo funciona
+el conector \ac{OBD}--II en esta situación. Los datos enviados y recibidos por
+el coche están siempre codificados en un valor binario, recogido en un vector
+de cuatro elementos en donde cada elemento tiene un \textit{byte} de tamaño. De
+esta forma, se define al valor obtenido tras leer el conector \ac{OBD}--II como:
+
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      \multicolumn{8}{|c|}{$A$} & \multicolumn{8}{|c|}{$B$} & \multicolumn{8}{|c|}{$C$} & \multicolumn{8}{|c|}{$D$}                                                                                                                                                                                                                                 \\
+      \hline
+      $A_7$                     & $A_6$                     & $A_5$                     & $A_4$                     & $A_3$ & $A_2$ & $A_1$ & $A_0$ & $B_7$ & $B_6$ & $B_5$ & $B_4$ & $B_3$ & $B_2$ & $B_1$ & $B_0$ & $C_7$ & $C_6$ & $C_5$ & $C_4$ & $C_3$ & $C_2$ & $C_1$ & $C_0$ & $D_7$ & $D_6$ & $D_5$ & $D_4$ & $D_3$ & $D_2$ & $D_1$ & $D_0$ \\
+      \hline
+    \end{tabular}}
+  \caption{Vector de \textit{bytes} que representa los datos recibidos del conector \ac{OBD}--II \cite{OBDIIPIDs2021}.}
+  \label{tab:byte-array}
+\end{table}
+
+De esta forma, cuando se escribe $A_4$ se hace referencia al cuarto bit
+del vector $A$. Los bits están ordenados según \ac{MSB}, de forma que
+$A_7$ es el bit más significativo y $A_0$ el menor.
+
+Los datos se obtienen del \ac{OBD}--II utilizando un lenguaje estándar llamado
+\ac{PID}. El \ac{PID} se codifica como un número entero de 16 bits en donde los 8
+primeros bits identifican el servicio/modo y los 8 restantes la operación a realizar.
+Actualmente, están registrados los siguientes modos de funcionamiento (tabla
+\ref{tab:pids-mode}):
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{ | c | X | }
+    \hline
+    \textbf{Modo (hex)} & \textbf{Descripción}                                                                       \\
+    \hline
+    \texttt{01}         & Muestra los datos actuales del vehículo                                                    \\
+    \hline
+    \texttt{02}         & Muestra los datos almacenados del cuadro del vehículo                                      \\
+    \hline
+    \texttt{03}         & Muestra los códigos \ac{DTC}                                                               \\
+    \hline
+    \texttt{04}         & Elimina los códigos \ac{DTC} almacenados                                                   \\
+    \hline
+    \texttt{05}         & Resultados del test del sensor de oxígeno (sin \ac{CAN})                                   \\
+    \hline
+    \texttt{06}         & Resultados del test del sensor de oxígeno (con \ac{CAN})                                   \\
+    \hline
+    \texttt{07}         & Muestra los códigos \ac{DTC} pendientes (eliminados durante el último ciclo de conducción) \\
+    \hline
+    \texttt{08}         & Operaciones de control sobre los componentes del sistema                                   \\
+    \hline
+    \texttt{09}         & Petición de información sobre el vehículo                                                  \\
+    \hline
+    \texttt{0A}         & Códigos \ac{DTC} eliminados                                                                \\
+    \hline
+  \end{tabularx}
+  \caption{Lista de modos de funcionamiento del estándar \ac{OBD}--II \cite{OBDIIPIDs2021}.}
+  \label{tab:pids-mode}
+\end{table}
+
+Es importante destacar que no todos los fabricantes tienen por qué soportar todos
+los modos, y que además ciertos fabricantes pueden definir sus modos propios por encima
+del valor \texttt{09}.
+
+Todos los modos definidos anteriormente tienen un conjunto de órdenes de soporte
+en donde el sistema indica qué \ac{PID}s están soportados y cuáles no, por cada 32
+\ac{PID}s. Por ejemplo, enviar la orden \texttt{0x0100} (\textit{modo 1, PID 0})
+devolverá un valor que representará si los siguientes 32 \ac{PID}s están soportados.
+Si el valor fuese, por ejemplo, \texttt{BE1FA813} se tendría que:
+
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | }
+      \hline
+      \textbf{Hexadecimal} & \multicolumn{4}{|c|}{\texttt{B}} & \multicolumn{4}{|c|}{\texttt{E}} & \multicolumn{4}{|c|}{\texttt{1}} & \multicolumn{4}{|c|}{\texttt{F}} & \multicolumn{4}{|c|}{\texttt{A}} & \multicolumn{4}{|c|}{\texttt{8}} & \multicolumn{4}{|c|}{\texttt{1}} & \multicolumn{4}{|c|}{\texttt{3}}                                                                                                                                                                                                                                                                                                                                                 \\
+      \hline
+      \textbf{Binario}     & \texttt{1}                       & \texttt{0}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{1}                       & \texttt{0}                       & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{1}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{0}  & \texttt{0}  & \texttt{1}  & \texttt{1}  \\
+      \hline
+      \textbf{?`Soportado?} & \done                            & \wontfix                         & \done                            & \done                            & \done                            & \done                            & \done                            & \wontfix                         & \wontfix    & \wontfix    & \wontfix    & \done       & \done       & \done       & \done       & \done       & \done       & \wontfix    & \done       & \wontfix    & \done       & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \wontfix    & \done       & \wontfix    & \wontfix    & \done       & \done       \\
+      \hline
+      \textbf{PID}         & \texttt{01}                      & \texttt{02}                      & \texttt{03}                      & \texttt{04}                      & \texttt{05}                      & \texttt{06}                      & \texttt{07}                      & \texttt{08}                      & \texttt{09} & \texttt{0A} & \texttt{0B} & \texttt{0C} & \texttt{0D} & \texttt{0E} & \texttt{0F} & \texttt{10} & \texttt{11} & \texttt{12} & \texttt{13} & \texttt{14} & \texttt{15} & \texttt{16} & \texttt{17} & \texttt{18} & \texttt{19} & \texttt{1A} & \texttt{1B} & \texttt{1C} & \texttt{1D} & \texttt{1E} & \texttt{1F} & \texttt{20} \\
+      \hline
+    \end{tabular}}
+  \caption{Obtención de los \ac{PID}s soportados según el modo \cite{OBDIIPIDs2021}.}
+  \label{tab:supported-pids}
+\end{table}
+
+A continuación, se dejan un conjunto de \ac{PID}s que se van a implementar en el
+proyecto así como el código de acceso a ellos y la ecuación que permite obtener el
+valor real.
+
+\subsection*{Modo \texttt{01}}
+Este modo permite acceder a la información en tiempo real del vehículo, según se
+está en marcha. Los datos a los que se accede son:
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{04}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                            \\
+    \hline
+    \textbf{Descripción}     & Carga del motor, en porcentaje \\
+    \hline
+    \textbf{Valor mínimo}    & $0\%$                          \\
+    \hline
+    \textbf{Valor máximo}    & $100\%$                        \\
+    \hline
+    \textbf{Fórmula}         &                                %
+    \begin{equation*}
+      \frac{A}{2.55}
+    \end{equation*}                                 \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{04} -- carga del motor, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{05}                            \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                                    \\
+    \hline
+    \textbf{Descripción}     & Temperatura del refrigerante del motor \\
+    \hline
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$                    \\
+    \hline
+    \textbf{Valor máximo}    & $215~\tccentigrade$                    \\
+    \hline
+    \textbf{Fórmula}         &                                        %
+    \begin{equation*}
+      A - 40
+    \end{equation*}                                         \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{05} -- temperatura del refrigerante del motor, en $\tccentigrade$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{0C}         \\
+    \hline
+    \textbf{Bytes devueltos} & $2$                 \\
+    \hline
+    \textbf{Descripción}     & Velocidad del motor \\
+    \hline
+    \textbf{Valor mínimo}    & $0~RPM$             \\
+    \hline
+    \textbf{Valor máximo}    & $16383.75~RPM$      \\
+    \hline
+    \textbf{Fórmula}         &                     %
+    \begin{equation*}
+      \frac{256A + B}{4}
+    \end{equation*}                      \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{0C} -- velocidad del motor, en $RPM$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{0D}            \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                    \\
+    \hline
+    \textbf{Descripción}     & Velocidad del vehículo \\
+    \hline
+    \textbf{Valor mínimo}    & $0~\nicefrac{km}{h}$   \\
+    \hline
+    \textbf{Valor máximo}    & $255~\nicefrac{km}{h}$ \\
+    \hline
+    \textbf{Fórmula}         &                        %
+    \begin{equation*}
+      A
+    \end{equation*}                         \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{0D} -- velocidad del vehículo, en $\nicefrac{km}{h}$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{11}             \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                     \\
+    \hline
+    \textbf{Descripción}     & Posición del acelerador \\
+    \hline
+    \textbf{Valor mínimo}    & $0\%$                   \\
+    \hline
+    \textbf{Valor máximo}    & $100\%$                 \\
+    \hline
+    \textbf{Fórmula}         &                         %
+    \begin{equation*}
+      \frac{A}{2.55}
+    \end{equation*}                          \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{11} -- posición del acelerador, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{2F}                      \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                              \\
+    \hline
+    \textbf{Descripción}     & Nivel del tanque del combustible \\
+    \hline
+    \textbf{Valor mínimo}    & $0\%$                            \\
+    \hline
+    \textbf{Valor máximo}    & $100\%$                          \\
+    \hline
+    \textbf{Fórmula}         &                                  %
+    \begin{equation*}
+      \frac{A}{2.55}
+    \end{equation*}                                   \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{2F} -- nivel del tanque del combustible, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{46}          \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                  \\
+    \hline
+    \textbf{Descripción}     & Temperatura ambiente \\
+    \hline
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$  \\
+    \hline
+    \textbf{Valor máximo}    & $215~\tccentigrade$  \\
+    \hline
+    \textbf{Fórmula}         &                      %
+    \begin{equation*}
+      A - 40
+    \end{equation*}                      \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{46} -- temperatura ambiente, en $\tccentigrade$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{5B}                           \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                                   \\
+    \hline
+    \textbf{Descripción}     & Tiempo restante de la batería híbrida \\
+    \hline
+    \textbf{Valor mínimo}    & $0\%$                                 \\
+    \hline
+    \textbf{Valor máximo}    & $100\%$                               \\
+    \hline
+    \textbf{Fórmula}         &                                       %
+    \begin{equation*}
+      \frac{A}{2.55}
+    \end{equation*}                                       \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{5B} -- tiempo restante de la batería híbrida, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{5C}            \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                    \\
+    \hline
+    \textbf{Descripción}     & Temperatura del aceite \\
+    \hline
+    \textbf{Valor mínimo}    & $-40~\tccentigrade$    \\
+    \hline
+    \textbf{Valor máximo}    & $215~\tccentigrade$    \\
+    \hline
+    \textbf{Fórmula}         &                        %
+    \begin{equation*}
+      A - 40
+    \end{equation*}                        \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{5C} -- temperatura del aceite, en $\tccentigrade$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{5E}               \\
+    \hline
+    \textbf{Bytes devueltos} & $2$                       \\
+    \hline
+    \textbf{Descripción}     & Consumo actual del motor  \\
+    \hline
+    \textbf{Valor mínimo}    & $0~\nicefrac{l}{h}$       \\
+    \hline
+    \textbf{Valor máximo}    & $3212.75~\nicefrac{l}{h}$ \\
+    \hline
+    \textbf{Fórmula}         &                           %
+    \begin{equation*}
+      \frac{256A + B}{20}
+    \end{equation*}                           \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{5E} -- consumo actual del motor, en $\nicefrac{L}{h}$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{61}                       \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                               \\
+    \hline
+    \textbf{Descripción}     & Torque demandado por el conductor \\
+    \hline
+    \textbf{Valor mínimo}    & $-125\%$                          \\
+    \hline
+    \textbf{Valor máximo}    & $130\%$                           \\
+    \hline
+    \textbf{Fórmula}         &                                   %
+    \begin{equation*}
+      A - 125
+    \end{equation*}                                   \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{61} -- torque demandado por el conductor, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{62}             \\
+    \hline
+    \textbf{Bytes devueltos} & $1$                     \\
+    \hline
+    \textbf{Descripción}     & Torque actual del motor \\
+    \hline
+    \textbf{Valor mínimo}    & $-125\%$                \\
+    \hline
+    \textbf{Valor máximo}    & $130\%$                 \\
+    \hline
+    \textbf{Fórmula}         &                         %
+    \begin{equation*}
+      A - 125
+    \end{equation*}                         \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{62} -- torque actual del motor, en $\%$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{63}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $2$                            \\
+    \hline
+    \textbf{Descripción}     & Torque de referencia del motor \\
+    \hline
+    \textbf{Valor mínimo}    & $0~Nm$                  \\
+    \hline
+    \textbf{Valor máximo}    & $65535~Nm$              \\
+    \hline
+    \textbf{Fórmula}         &                                %
+    \begin{equation*}
+      256A + B
+    \end{equation*}                                \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{63} -- torque de referencia del motor, en $Nm$.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{A4}                \\
+    \hline
+    \textbf{Bytes devueltos} & $4$                        \\
+    \hline
+    \textbf{Descripción}     & Marcha actual del vehículo \\
+    \hline
+    \textbf{Valor mínimo}    & $0~\text{ratio}$           \\
+    \hline
+    \textbf{Valor máximo}    & $65535~\text{ratio}$       \\
+    \hline
+    \textbf{Fórmula}         &                            %
+    \begin{equation*}
+      \begin{aligned}
+        A_1 & = 1 \Longrightarrow \text{soportado} \\
+        R   & = \frac{256C + D}{1000}
+      \end{aligned}
+    \end{equation*}                            \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{A4} -- marcha actual del vehículo, en ratio.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{A6}      \\
+    \hline
+    \textbf{Bytes devueltos} & $4$              \\
+    \hline
+    \textbf{Descripción}     & Odómetro         \\
+    \hline
+    \textbf{Valor mínimo}    & $0~km$           \\
+    \hline
+    \textbf{Valor máximo}    & $429496729.5~km$ \\
+    \hline
+    \textbf{Fórmula}         &                  %
+    \begin{equation*}
+      \frac{A\left(2^{24}\right) + B\left(2^{16}\right) + C\left(2^8\right) + D}{10}
+    \end{equation*}                  \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{A6} -- odómetro, en $km$.}
+\end{table}
+
+\subsection*{Modo \texttt{03}}
+El modo \texttt{03} devuelve los \ac{DTC} guardados de la sesión actual. Estos códigos
+de diagnóstico representan los distintos errores que hay en el vehículo, con un conjunto
+de bytes que los identifican.
+
+Este modo, a diferencia de los otros, no requiere de un parámetro \ac{PID} sino que solo
+se envía el servicio como identificador. Una petición al modo \texttt{03} devolverá una
+lista de $n$ elementos en donde cada elemento ocupa 2 bytes (por ende, el tamaño
+esperable de la trama es $2n$).
+
+Los códigos de error se definen como un conjunto de 5 caracteres de la forma: ``\texttt{U0158}''.
+El valor de los caracteres define así:
+
+\begin{table}[H]
+  \centering
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_7$ - $A_6$ & \textbf{Primer caracter \ac{DTC}}                         \\
+      \hline
+      \texttt{00}             & \textbf{P} -- sistema de propulsión (\textit{powertrain}) \\
+      \texttt{01}             & \textbf{C} -- chassis                                     \\
+      \texttt{10}             & \textbf{B} -- cuerpo (\textit{body})                      \\
+      \texttt{11}             & \textbf{U} -- comunicaciones (\textit{network})           \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_5$ - $A_4$ & \textbf{Segundo caracter \ac{DTC}} \\
+      \hline
+      \texttt{00}             & \texttt{0}                         \\
+      \texttt{01}             & \texttt{1}                         \\
+      \texttt{10}             & \texttt{2}                         \\
+      \texttt{11}             & \texttt{3}                         \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.32\linewidth}
+    \begin{tabularx}{\textwidth}{|C{.3}|C{.7}|}
+      \hline
+      $A_3$ - $A_0$ & \textbf{Tercer caracter \ac{DTC}} \\
+      \hline
+      \texttt{0000}             & \texttt{0}                        \\
+      \texttt{0001}             & \texttt{1}                        \\
+      \texttt{0010}             & \texttt{2}                        \\
+      \texttt{0011}             & \texttt{3}                        \\
+      \texttt{0100}             & \texttt{4}                        \\
+      \texttt{0101}             & \texttt{5}                        \\
+      \texttt{0110}             & \texttt{6}                        \\
+      \texttt{0111}             & \texttt{7}                        \\
+      \texttt{1000}             & \texttt{8}                        \\
+      \texttt{1001}             & \texttt{9}                        \\
+      \texttt{1010}             & \texttt{A}                        \\
+      \texttt{1011}             & \texttt{B}                        \\
+      \texttt{1100}             & \texttt{C}                        \\
+      \texttt{1101}             & \texttt{D}                        \\
+      \texttt{1110}             & \texttt{E}                        \\
+      \texttt{1111}             & \texttt{F}                        \\
+      \hline
+    \end{tabularx}
+  \end{minipage}
+\end{table}
+
+Los caracteres cuarto y quinto se corresponden a los bits $B_7$ -- $B_4$ y $B_3$ -- $B_0$
+respectivamente, y siguen la notación hexadecimal (al igual que los bits $A_3$ -- $A_0$).
+
+De esta forma, con el código ya extraído, se necesita mirar en una tabla de valores
+\ac{DTC} para saber exactamente a qué error se corresponde. Una web muy interesante
+es la de ``OBD-Codes.com'' \cite{OBDCodesComLeading}, en donde hay información tanto
+de códigos \ac{DTC} estándar como de códigos propietarios. Mirando en la propia
+web, el código \texttt{U0158} se correspondería a: ``\textit{Lost communication with
+head-up display}''\footnote{En la propia web dan muchos detalles e información
+extendida sobre el error en cuestión, al igual que procedimientos para poder
+solucionar el problema -- \url{https://www.obd-codes.com/u0158}}.
+
+\subsection*{Modo \texttt{09}}
+El modo \texttt{09} devuelve información referente al vehículo en sí, no al estado
+de los sensores o del propio vehículo. Algunos datos interesantes son:
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{02}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $17$                            \\
+    \hline
+    \textbf{Descripción}     & \ac{VIN} \\
+    \hline
+    \textbf{Fórmula}         & \ac{VIN} de 17 caracteres ASCII con \textit{padding} a la izquierda de caracteres nulos (\texttt{0x00}) si hace falta \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{02} -- \ac{VIN}.}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{PID (hex)}       & \texttt{0A}                    \\
+    \hline
+    \textbf{Bytes devueltos} & $20$                            \\
+    \hline
+    \textbf{Descripción}     & Nombre de la \ac{ECU} \\
+    \hline
+    \textbf{Fórmula}         & 20 caracteres ASCII con \textit{padding} a la derecha de caracteres nulos (\texttt{0x00}) \\
+    \hline
+  \end{tabularx}
+  \caption{\ac{PID} \texttt{0A} -- nombre de la \ac{ECU}.}
+\end{table}

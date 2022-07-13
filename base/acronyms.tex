@@ -1,0 +1,136 @@
+\begin{acronym}
+  \acro{ADAS}{\textit{Advanced Driver Assistance Systems}}
+  \acro{ADC}{\textit{Analog--Digital Converter}}
+  \acro{ALDL}{\textit{Computerized Assembly Line Diagnostics Link}}
+  \acro{API}{\textit{Application Programming Interface}}
+  \acro{BLE}{\textit{Bluetooth Low Energy}}
+  \acro{BR/EDR}{\textit{Basic Rate/Enhaced Data Rate}}
+  \acro{CAN}{\textit{Controller Area Network}}
+  \acro{CARB}{\textit{California Air Resources Board}}
+  \acro{CRUD}{\textit{Create Read Update Delete}}
+  \acro{DMS}{\textit{Deadline Monotolic Scheduling}}
+  \acro{DTC}{\textit{Diagnostic Trouble Codes}}
+  \acro{ECU}{\textit{Engine Control Unit}}
+  \acro{EOBD}{\textit{European On-Board Diagnostics}}
+  \acro{GB}{\textit{gigabyte}}
+  \acro{GPIO}{\textit{General Purpose Input/Output}}
+  \acro{GPS}{\textit{Global Positioning System}}
+  \acro{GUI}{\textit{Graphical User Interface}}
+  \acro{ICPP}{\textit{Immediate Ceiling Priority Protocol}}
+  \acro{IoT}{\textit{Internet of Things}}
+  \acro{JOBD}{\textit{Japanese On-Board Diagnostics}}
+  \acro{LTE}{\textit{Long--Term Evolution}}
+  \acro{MIL}{\textit{Malfunction Indicator Lamp}}
+  \acro{MSB}{\textit{Most Significant Bit}}
+  \acro{NTP}{\textit{Network Time Protocol}}
+  \acro{OBD}{\textit{On-Board Diagnostics}}
+  \acro{P2P}{\textit{Point-to-Point}}
+  \acro{PAN}{\textit{Personal Area Network}}
+  \acro{PFM}{Proyecto Fin de Máster}
+  \acro{PID}{\textit{Parameter ID}}
+  \acro{PWM}{\textit{Pulse--Width Modulation}}
+  \acro{REST}{\textit{REpresentational State Transfer}}
+  \acro{RPM}{Revoluciones Por Minuto}
+  \acro{SAE}{\textit{Society of Automotive Engineers}}
+  \acro{SoC}{\textit{System on Chip}}
+  \acro{UART}{\textit{Universal Ascynchronous Receiver--Transmitter}}
+  \acro{ULP}{\textit{Ultra Low Power}}
+  \acro{UTC}{\textit{Coordinated Universal Time}}
+  \acro{VIMS}{\textit{Vehicle IoT Metrics System}}
+  \acro{VIN}{\textit{Vehicle Identification Number}}
+  \acro{WCET}{\textit{Worst Case Execution Time}}
+\end{acronym}
+
+\begin{itemize}
+  \item \ac{ADAS} -- sistema de control de un vehículo que utiliza sensores del entorno
+        (radar, láser, visión por computador) para mejorar la seguridad al volante y
+        la seguridad del entorno ayudando a los conductores a reconocer y reaccionar
+        ante eventos o situaciones de tráfico potencialmente peligrosas \cite{hermawanAcquisitionModelingEvaluating2020}.
+  \item \ac{API} -- conjunto de definiciones, subrutinas y protocolos que ofrecen
+        ciertos \textit{softwares} para ser usados por otras aplicaciones como
+        capa de abstracción sobre el original \cite{InterfazProgramacionAplicaciones2021}.
+  \item \ac{BLE} -- tecnología \ac{PAN} que permite la comunicación entre dispositivos
+        con un rango similar a Bluetooth pero un menor consumo de energía.
+  \item \ac{BR/EDR} -- terminología asociada al estándar Bluetooth que define el modo
+        de funcionamiento clásico del mismo. Se caracteriza por contar con 79 canales
+        de $1~MHz$ de ancho de banda, operar en la red de $2.4~GHz$, ser \ac{P2P},
+        transmitir a una velocidad máxima de $3~Mbps$ y tener un consumo medio de
+        $1~W$ \cite{ComparisonBluetoothBR}.
+  \item Bus \ac{CAN} -- protocolo de comunicaciones de tiempo real para el envío de
+        mensajes en entornos distribuidos, permitiendo la comunicación
+        entre múltiples CPUs.
+  \item \ac{CRUD} -- funciones básicas que se realizan sobre una base de datos y que
+        conforman el conjunto mínimo de operaciones que se deben poder realizar sobre
+        una.
+  \item \ac{DMS} -- sistema de ordenación por prioridades en donde se asignan valores
+        de prioridad a las tareas según su plazo o \textit{deadline}, de forma que cuanto
+        menor es su plazo mayor será su prioridad.
+  \item \ac{DTC} -- códigos de diagnóstico almacenados en un vehículo que identifican
+        un error que tiene el vehículo o que ha tenido.
+  \item \ac{ECU} -- centralita electrónica conectado a todos los sensores y sistemas
+        del vehículo que recibe la información de los mismos y ejecuta comandos o acciones
+        contra ellos.
+  \item \ac{GB} -- unidad de almacenamiento de información equivalente a $10^9$ bytes.
+  \item \ac{GPIO} -- pin genérico cuyo comportamiento puede ser controlado en tiempo
+        de ejecución.
+  \item \ac{GPS} -- sistema que permite posicionar cualquier objeto con una 
+        precisión de hasta centímetros usando cuatro o más satélites y 
+        trilateración \cite{GPS2021}.
+  \item \ac{GUI} -- conjunto de componentes visuales que permiten a los usuarios
+        interactuar con una aplicación de manera visual e intuitiva.
+  \item \ac{ICPP} -- protocolo de inversión de prioridades que se usa cuando múltiples
+        tareas intentan acceder al mismo recurso compartido en donde la tarea $t_i$ que
+        accede al recurso hereda una prioridad de techo equivalente a la de la tarea
+        de mayor prioridad que accede al recurso. Por ejemplo, si las tareas $t_1$ y
+        $t_2$ con prioridades $10$ y $5$ respectivamente acceden al recursos $r_1$, la
+        prioridad de la tarea $t_2$ será de $10$ mientras acceda a dicho recurso.
+  \item \ac{IoT} -- concepto que se refiere a la interconexión digital de objetos 
+        cotidianos con Internet \cite{InternetCosas2021}.
+  \item \textit{jitter} -- retardo relativo que se produce en las comunicaciones
+        y que afecta directamente a la saturación de la red y a la capacidad de
+        transmisión de la misma.
+  \item \ac{LTE} -- también conocido como ``\texttt{4G}'', es la cuarta generación
+        del estándar de conexión móvil a Internet que mejora a su predecesor, el \texttt{3G}.
+  \item \ac{MSB} -- bit, de acuerdo con su posición, tiene mayor valor (extremo izquierdo).
+  \item \ac{NTP} -- protocolo de sincronización temporal que funciona sobre UDP usando para mantener
+        los relojes de los sistemas informáticos en base al reloj atómico universal, que
+        es \textit{stratum 1}.
+  \item \ac{OBD} -- sistema de diagnóstico a bordo de vehículos que cuenta con múltiples estándares según la región de uso. Estos
+        sistemas ofrecen una monitorización activa y control completo
+        sobre el motor y otros dispositivos del vehículo \cite{OBD2021}.
+  \item \ac{P2P} -- protocolo de comunicación entre dos nodos en donde sendos nodos se
+        interconectan entre sí para el intercambio de información sin necesidad de usar
+        un intermediario.
+  \item \ac{PAN} -- redes destinadas a la comunicación entre dispositivos en una
+        misma red o malla. Tiene un alcance muy limitado, de unos pocos metros por
+        lo general.
+  \item \ac{PID} -- parámetro utilizado en la comunicación mediante \ac{OBD}--II que
+        identifica el tipo de petición que el mecánico/usuario quiera hacer al sistema.
+        Son valores enteros de 16 bits que funcionan en formato clave--valor. La información
+        devuelta por el conector es también un conjunto de bytes de 32 bits en total que
+        representan la información solicitada por el usuario. Por lo general, se deben
+        realizar ciertas operaciones aritméticas con ese conjunto de bytes para obtener
+        la representación decimal del valor \cite{OBDIIPIDs2021}.
+  \item \ac{PWM} -- señal cuadrada de periodo habitualmente constante, entre flancos de
+        subida, en la que se modula el tiempo a nivel alto.
+  \item \ac{REST} -- estilo de arquitectura \textit{software} para sistemas hipermedia
+        distribuidos, como la World Wide Web. En la actualidad se usa en sentido más
+        amplio para describir cualquier interfaz entre sistemas que usa directamente
+        HTTP para obtener datos o indicar una operación sobre un conjunto de datos
+        en cualquier formato (aunque habitualmente se usa JSON o XML) \cite{TransferenciaEstadoRepresentacional2022}.
+  \item \textit{Smog} -- nube baja formada por dióxido de carbono, hollín, humo y polvo
+        en suspensión que se forma sobre las grandes ciudades o núcleos industriales.
+  \item \ac{SoC} -- denominación asociada a los sistemas (generalmente embebidos) que
+        aúnan todos los módulos que requieren para funcionar (y otros tantos para añadir más
+        funcionalidades) en un único \textit{chip} que expone al exterior dichas
+        funcionalidades mediante una interfaz \textit{hardware} como si fuese un único
+        circuito integrado.
+  \item trilateración -- método matemático que permite determinar las posiciones
+        relativas de objetos usando la geometría de los triángulos \cite{Trilateracion2021}.
+  \item \ac{UTC} -- principal estándar de tiempo por el cual el mundo regula los relojes y el tiempo.
+        Entre otras características, es un reloj monotónico (no puede volver al pasado).
+  \item \ac{VIN} -- código único, incluyendo el número de serie, que identifica individualmente
+        los vehículos a motor, a remolque, motocicletas, \textit{scooters} y \textit{mopeds},
+        tal como se define en las ISO 3779 (contenido y estructura) e ISO 4030 (ubicación
+        y acoplamiento) \cite{VehicleIdentificationNumber2022}.
+\end{itemize}

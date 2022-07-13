@@ -1,0 +1,649 @@
+\begin{gather*}
+  R_5^0 = C_5 + B_5 = 20 + 30 = 50 \\
+  R_5^1 = C_5 + B_5 = 20 + 30 = 50 \\
+  R_5 = 50 \le 100 = D_5
+\end{gather*}
+
+\begin{gather*}
+  R_{10}^0 = C_{10} + B_{10} = 15 + 30 = 45 \\
+  R_{10}^1 = C_{10} + B_{10} + \left\lceil\frac{R_{10}^0}{T_5}\right\rceil\cdot C_5 = 15 + 30 + \left\lceil\frac{45}{100}\right\rceil\cdot 20 = 65 \\
+  R_{10}^2 = C_{10} + B_{10} + \left\lceil\frac{R_{10}^1}{T_5}\right\rceil\cdot C_5 = 15 + 30 + \left\lceil\frac{65}{100}\right\rceil\cdot 20 = 65 \\
+  R_{10} = 65 \le 100 = D_{10}
+\end{gather*}
+
+\begin{gather*}
+  R_2^0 = C_9 + B_9 = 40 + 30 = 70 \\
+  R_2^1 = C_9 + B_9 + \left\lceil\frac{R_2^0}{T_{10}}\right\rceil\cdot C_{10} + \left\lceil\frac{R_2^0}{T_5}\right\rceil\cdot C_5 = 40 + 30 + \left\lceil\frac{70}{1000}\right\rceil\cdot 15 + \left\lceil\frac{70}{100}\right\rceil\cdot 20 = 105 \\
+  R_2^2 = C_9 + B_9 + \left\lceil\frac{R_2^1}{T_{10}}\right\rceil\cdot C_{10} + \left\lceil\frac{R_2^1}{T_5}\right\rceil\cdot C_5 = 40 + 30 + \left\lceil\frac{105}{1000}\right\rceil\cdot 15 + \left\lceil\frac{105}{100}\right\rceil\cdot 20 = 125 \\
+  R_2^3 = C_9 + B_9 + \left\lceil\frac{R_2^2}{T_{10}}\right\rceil\cdot C_{10} + \left\lceil\frac{R_2^2}{T_5}\right\rceil\cdot C_5 = 40 + 30 + \left\lceil\frac{125}{1000}\right\rceil\cdot 15 + \left\lceil\frac{125}{100}\right\rceil\cdot 20 = 125 \\
+  R_2 = 125 \le 200 = D_2
+\end{gather*}
+
+\begin{gather*}
+  R_8^0 = C_8 + B_8 = 50 + 30 = 80 \\
+  \begin{multlined}
+    R_8^1 = C_8 + B_8 + \left\lceil\frac{R_8^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_8^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_8^0}{T_2}\right\rceil\cdot C_2 = \\%
+    = 50 + 30 + \left\lceil\frac{80}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{80}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{80}{700}\right\rceil\cdot 40 = 155 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_8^2 = C_8 + B_8 + \left\lceil\frac{R_8^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_8^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_8^1}{T_2}\right\rceil\cdot C_2 = \\%
+    = 50 + 30 + \left\lceil\frac{155}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{155}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{155}{700}\right\rceil\cdot 40 = 175 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_8^3 = C_8 + B_8 + \left\lceil\frac{R_8^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_8^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_8^2}{T_2}\right\rceil\cdot C_2 = \\%
+    = 50 + 30 + \left\lceil\frac{175}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{175}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{175}{700}\right\rceil\cdot 40 = 175 \\
+  \end{multlined} \\
+  R_8 = 175 \le 300 = D_8
+\end{gather*}
+
+\begin{gather*}
+  R_{11}^0 = C_{11} + B_{11} = 50 + 30 = 80 \\
+  \begin{multlined}
+    R_{11}^1 = C_{11} + B_{11} + %
+    \left\lceil\frac{R_{11}^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_{11}^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_{11}^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_{11}^0}{T_8}\right\rceil\cdot C_8 = \\%
+    = 50 + 30 + \left\lceil\frac{80}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{80}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{80}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{80}{300}\right\rceil\cdot 50 = 205 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_{11}^1 = C_{11} + B_{11} + %
+    \left\lceil\frac{R_{11}^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_{11}^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_{11}^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_{11}^1}{T_8}\right\rceil\cdot C_8 = \\%
+    = 50 + 30 + \left\lceil\frac{205}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{205}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{205}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{205}{300}\right\rceil\cdot 50 = 225 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_{11}^1 = C_{11} + B_{11} + %
+    \left\lceil\frac{R_{11}^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_{11}^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_{11}^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_{11}^2}{T_8}\right\rceil\cdot C_8 = \\%
+    = 50 + 30 + \left\lceil\frac{225}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{225}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{225}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{225}{300}\right\rceil\cdot 50 = 225 \\
+  \end{multlined} \\
+  R_{11} = 225 \le 300 = D_{11}
+\end{gather*}
+
+\begin{gather*}
+  R_{1}^0 = C_{1} + B_{1} = 50 + 0 = 50 \\
+  \begin{multlined}
+    R_1^1 = C_1 + B_1 + \left\lceil\frac{R_1^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_1^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_1^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_1^0}{T_8}\right\rceil\cdot C_8 + %
+    \left\lceil\frac{R_1^0}{T_{11}}\right\rceil\cdot C_{11} = \\%
+    = 50 + 0 + \left\lceil\frac{50}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{50}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{50}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{50}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{50}{300}\right\rceil\cdot 50 = 225 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_1^1 = C_1 + B_1 + \left\lceil\frac{R_1^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_1^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_1^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_1^1}{T_8}\right\rceil\cdot C_8 + %
+    \left\lceil\frac{R_1^1}{T_{11}}\right\rceil\cdot C_{11} = \\%
+    = 50 + 0 + \left\lceil\frac{225}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{225}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{225}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{225}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{225}{300}\right\rceil\cdot 50 = 265 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_1^1 = C_1 + B_1 + \left\lceil\frac{R_1^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_1^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_1^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_1^1}{T_8}\right\rceil\cdot C_8 + %
+    \left\lceil\frac{R_1^1}{T_{11}}\right\rceil\cdot C_{11} = \\%
+    = 50 + 0 + \left\lceil\frac{265}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{265}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{265}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{265}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{265}{300}\right\rceil\cdot 50 = 265 \\
+  \end{multlined} \\
+  R_1 = 265 \le 400 = D_1
+\end{gather*}
+
+\begin{gather*}
+  R_7^0 = C_7 + B_7 = 50 + 30 = 80 \\
+  \begin{multlined}
+    R_7^1 = C_7 + B_7 + \left\lceil\frac{R_7^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_7^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_7^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_7^0}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_7^0}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_7^0}{T_1}\right\rceil\cdot C_1 = \\%
+    = 50 + 30 + \left\lceil\frac{80}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{80}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{80}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{80}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{80}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{80}{600}\right\rceil\cdot 50 = 305 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_7^2 = C_7 + B_7 + \left\lceil\frac{R_7^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_7^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_7^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_7^1}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_7^1}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_7^1}{T_1}\right\rceil\cdot C_1 = \\%
+    = 50 + 30 + \left\lceil\frac{305}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{305}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{305}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{305}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{305}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{305}{600}\right\rceil\cdot 50 = 485 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_7^3 = C_7 + B_7 + \left\lceil\frac{R_7^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_7^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_7^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_7^2}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_7^2}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_7^2}{T_1}\right\rceil\cdot C_1 = \\%
+    = 50 + 30 + \left\lceil\frac{485}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{485}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{485}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{485}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{485}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{485}{600}\right\rceil\cdot 50 = 485 \\
+  \end{multlined} \\
+  R_7 = 485 \le 1000 = D_7
+\end{gather*}
+
+\begin{gather*}
+  R_4^0 = C_4 + B_4 = 70 + 20 = 90 \\
+  \begin{multlined}
+    R_4^1 = C_4 + B_4 + \left\lceil\frac{R_4^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_4^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_4^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_4^0}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_4^0}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_4^0}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_4^0}{T_7}\right\rceil\cdot C_7 = \\%
+    = 70 + 20 + \left\lceil\frac{90}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{90}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{90}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{90}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{90}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{90}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{90}{1000}\right\rceil\cdot 50 = 365 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_4^2 = C_4 + B_4 + \left\lceil\frac{R_4^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_4^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_4^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_4^1}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_4^1}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_4^1}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_4^1}{T_7}\right\rceil\cdot C_7 = \\%
+    = 70 + 20 + \left\lceil\frac{365}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{365}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{365}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{365}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{365}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{365}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{365}{1000}\right\rceil\cdot 50 = 525 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_4^3 = C_4 + B_4 + \left\lceil\frac{R_4^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_4^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_4^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_4^2}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_4^2}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_4^2}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_4^2}{T_7}\right\rceil\cdot C_7 = \\%
+    = 70 + 20 + \left\lceil\frac{525}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{525}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{525}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{525}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{525}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{525}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{525}{1000}\right\rceil\cdot 50 = 565 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_4^4 = C_4 + B_4 + \left\lceil\frac{R_4^3}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_4^3}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_4^3}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_4^3}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_4^3}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_4^3}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_4^3}{T_7}\right\rceil\cdot C_7 = \\%
+    = 70 + 20 + \left\lceil\frac{525}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{565}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{565}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{565}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{565}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{565}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{565}{1000}\right\rceil\cdot 50 = 565 \\
+  \end{multlined} \\
+  R_4 = 565 \le 1500 = D_4
+\end{gather*}
+
+\begin{gather*}
+  R_3^0 = C_3 + B_3 = 30 + 0 = 30 \\
+  \begin{multlined}
+    R_3^1 = C_3 + B_3 + \left\lceil\frac{R_3^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_3^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_3^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_3^0}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_3^0}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_3^0}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_3^0}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_3^0}{T_4}\right\rceil\cdot C_4 = \\%
+    = 30 + 0 + \left\lceil\frac{30}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{30}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{30}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{30}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{30}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{30}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{30}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{30}{1500}\right\rceil\cdot 70 = 375 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_3^2 = C_3 + B_3 + \left\lceil\frac{R_3^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_3^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_3^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_3^1}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_3^1}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_3^1}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_3^1}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_3^1}{T_4}\right\rceil\cdot C_4 = \\%
+    = 30 + 0 + \left\lceil\frac{375}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{375}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{375}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{375}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{375}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{375}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{375}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{375}{1500}\right\rceil\cdot 70 = 535 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_3^3 = C_3 + B_3 + \left\lceil\frac{R_3^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_3^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_3^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_3^2}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_3^2}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_3^2}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_3^2}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_3^2}{T_4}\right\rceil\cdot C_4 = \\%
+    = 30 + 0 + \left\lceil\frac{535}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{535}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{535}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{535}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{535}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{535}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{535}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{535}{1500}\right\rceil\cdot 70 = 575 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_3^4 = C_3 + B_3 + \left\lceil\frac{R_3^3}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_3^3}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_3^3}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_3^3}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_3^3}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_3^3}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_3^3}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_3^3}{T_4}\right\rceil\cdot C_4 = \\%
+    = 30 + 0 + \left\lceil\frac{575}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{575}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{575}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{575}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{575}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{575}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{575}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{575}{1500}\right\rceil\cdot 70 = 575 \\
+  \end{multlined} \\
+  R_3 = 575 \le 1000 = D_3
+\end{gather*}
+
+\begin{gather*}
+  R_6^0 = C_6 + B_6 = 100 + 0 = 100 \\
+  \begin{multlined}
+    R_6^1 = C_6 + B_6 + \left\lceil\frac{R_6^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^0}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^0}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^0}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^0}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^0}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^0}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{100}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{100}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{100}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{100}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{100}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{100}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{100}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{100}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{100}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 475 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^2 = C_6 + B_6 + \left\lceil\frac{R_6^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^1}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^1}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^1}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^1}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^1}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^1}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{475}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{475}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{475}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{475}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{475}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{475}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{475}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{475}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{475}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 655 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^3 = C_6 + B_6 + \left\lceil\frac{R_6^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^2}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^2}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^2}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^2}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^2}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^2}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{655}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{655}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{655}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{655}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{655}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{655}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{655}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{655}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{655}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 845 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^4 = C_6 + B_6 + \left\lceil\frac{R_6^3}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^3}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^3}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^3}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^3}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^3}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^3}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^3}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^3}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{845}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{845}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{845}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{845}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{845}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{845}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{845}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{845}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{845}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 925 \\
+  \end{multlined} \\
+\end{gather*}
+\begin{gather*}
+  \begin{multlined}
+    R_6^5 = C_6 + B_6 + \left\lceil\frac{R_6^4}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^4}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^4}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^4}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^4}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^4}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^4}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^4}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^4}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{925}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{925}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{925}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{925}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{925}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{925}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{925}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{925}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{925}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 1045 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^6 = C_6 + B_6 + \left\lceil\frac{R_6^5}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^5}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^5}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^5}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^5}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^5}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^5}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^5}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^5}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{1045}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{1045}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{1045}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{1045}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{1045}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1045}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1045}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{1045}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{1045}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 1130 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^7 = C_6 + B_6 + \left\lceil\frac{R_6^6}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^6}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^6}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^6}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^6}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^6}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^6}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^6}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^6}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{1130}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{1130}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{1130}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{1130}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{1130}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1130}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1130}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{1130}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{1130}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 1150 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_6^8 = C_6 + B_6 + \left\lceil\frac{R_6^7}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_6^7}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_6^7}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_6^7}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_6^7}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_6^7}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_6^7}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_6^7}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_6^7}{T_3}\right\rceil\cdot C_3 = \\%
+    = 100 + 0 + \left\lceil\frac{1150}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{1150}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{1150}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{1150}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{1150}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1150}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1150}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{1150}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{1150}{3.6 \cdot 10^6}\right\rceil\cdot 30 = 1150 \\
+  \end{multlined} \\
+  R_6 = 1150 \le 2000 = D_6
+\end{gather*}
+
+\begin{gather*}
+  R_9^0 = C_9 + B_9 = 10 + 0 = 10 \\
+  \begin{multlined}
+    R_9^1 = C_9 + B_9 + \left\lceil\frac{R_9^0}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^0}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^0}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^0}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^0}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^0}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^0}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^0}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^0}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^0}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{10}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{10}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{10}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{10}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{10}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{10}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{10}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{10}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{10}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{10}{5000}\right\rceil\cdot 100 = 485 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_9^2 = C_9 + B_9 + \left\lceil\frac{R_9^1}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^1}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^1}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^1}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^1}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^1}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^1}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^1}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^1}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^1}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{485}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{485}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{485}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{485}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{485}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{485}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{485}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{485}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{485}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{485}{5000}\right\rceil\cdot 100 = 665 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_9^3 = C_9 + B_9 + \left\lceil\frac{R_9^2}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^2}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^2}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^2}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^2}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^2}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^2}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^2}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^2}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^2}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{665}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{665}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{665}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{665}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{665}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{665}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{665}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{665}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{665}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{665}{5000}\right\rceil\cdot 100 = 855 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_9^4 = C_9 + B_9 + \left\lceil\frac{R_9^3}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^3}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^3}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^3}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^3}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^3}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^3}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^3}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^3}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^3}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{855}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{855}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{855}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{855}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{855}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{855}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{855}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{855}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{855}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{855}{5000}\right\rceil\cdot 100 = 935 \\
+  \end{multlined} \\
+\end{gather*}
+\begin{gather*}
+  \begin{multlined}
+    R_9^5 = C_9 + B_9 + \left\lceil\frac{R_9^4}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^4}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^4}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^4}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^4}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^4}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^4}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^4}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^4}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^4}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{935}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{935}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{935}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{935}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{935}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{935}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{935}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{935}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{935}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{935}{5000}\right\rceil\cdot 100 = 1055 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_9^6 = C_9 + B_9 + \left\lceil\frac{R_9^5}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^5}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^5}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^5}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^5}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^5}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^5}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^5}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^5}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^5}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{1055}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{1055}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{1055}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{1055}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{1055}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1055}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1055}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{1055}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{1055}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{1055}{5000}\right\rceil\cdot 100 = 1090 \\
+  \end{multlined} \\
+  \begin{multlined}
+    R_9^7 = C_9 + B_9 + \left\lceil\frac{R_9^6}{T_{10}}\right\rceil\cdot C_{10} + %
+    \left\lceil\frac{R_9^6}{T_5}\right\rceil\cdot C_5 + %
+    \left\lceil\frac{R_9^6}{T_2}\right\rceil\cdot C_2 + %
+    \left\lceil\frac{R_9^6}{T_8}\right\rceil\cdot C_8 + \\%
+    + \left\lceil\frac{R_9^6}{T_{11}}\right\rceil\cdot C_{11} + %
+    \left\lceil\frac{R_9^6}{T_1}\right\rceil\cdot C_1 +%
+    \left\lceil\frac{R_9^6}{T_7}\right\rceil\cdot C_7 +%
+    \left\lceil\frac{R_9^6}{T_4}\right\rceil\cdot C_4 +%
+    \left\lceil\frac{R_9^6}{T_3}\right\rceil\cdot C_3 +%
+    \left\lceil\frac{R_9^6}{T_6}\right\rceil\cdot C_6 = \\%
+    = 10 + 0 + \left\lceil\frac{1090}{1000}\right\rceil\cdot 15 + %
+    \left\lceil\frac{1090}{100}\right\rceil\cdot 20 + %
+    \left\lceil\frac{1090}{700}\right\rceil\cdot 40 + %
+    \left\lceil\frac{1090}{300}\right\rceil\cdot 50 + \\%
+    + \left\lceil\frac{1090}{300}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1090}{600}\right\rceil\cdot 50 + %
+    \left\lceil\frac{1090}{1000}\right\rceil\cdot 50 +%
+    \left\lceil\frac{1090}{1500}\right\rceil\cdot 70 +%
+    \left\lceil\frac{1090}{3.6 \cdot 10^6}\right\rceil\cdot 30 +%
+    \left\lceil\frac{1090}{5000}\right\rceil\cdot 100 = 1090 \\
+  \end{multlined} \\
+  R_9 = 1090 \le 5000 = D_9
+\end{gather*}

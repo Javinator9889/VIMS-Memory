@@ -1,0 +1,33 @@
+El proyecto que se pretende desarrollar es un proyecto de ingeniería. Esto se
+traduce en que la metodología y la forma de trabajo son pilares fundamentales
+en el desarrollo del mismo.
+
+El primer paso realizado fue el de recopilar recursos e información de qué
+necesitaban específicamente los usuarios. Para ello, se elaboró un cuestionario
+en donde de forma general se preguntaba a conductores y no conductores qué querrían
+tener en su vehículo. Los primeros sirvieron como fuente de información principal,
+debido a sus características \textit{per se}; los segundos para aumentar la entropía
+de los datos obtenidos y usando sus respuestas como grupo de control para validar la
+de los primeros. El primer análisis realizado se detalla
+en la sección \ref{ssec:user-req}, de la especificación de requisitos. Posteriormente,
+en el punto \ref{sec:merch} se analiza en mayor profundidad los datos obtenidos
+y se extraerán conclusiones.
+
+A continuación, se realizó un estudio sobre qué plataformas y dispositivos están
+accesibles de forma global para la generación y transmisión de datos. Esta fase
+se centró principalmente en ``descubrir'' variantes del modelo ESP32 que incluyesen
+ciertas antenas para permitir una mayor conectividad. Tras valorar diversas opciones,
+se decidió usar el LILYGO T-SIM7000G ESP32 que incluye soporte de forma nativa para
+tarjetas microSD, antena \ac{LTE}, alimentación externa por batería, antena \ac{GPS}, WiFi y
+Bluetooth.
+
+Una vez se decidió que dispositivo físico se iba a utilizar, se comenzó con el desarrollo
+de los distintos diagramas que modelan el sistema, tanto lógicos como de diseño. Esta
+parte fue crucial para asentar las bases de lo que será el proyecto y ha permitido seguir
+el avance del mismo.
+
+Por último, se realizó el serigrafiado de la placa y se comenzó la implementación
+física de los diseños realizados. Por diversos contratiempos que han surgido, el proyecto
+se ha planteado finalmente como proyecto de especificación y diseño, con una batería
+de ensayos específicos reales que facilitarán la construcción que se va a realizar
+posteriormente.

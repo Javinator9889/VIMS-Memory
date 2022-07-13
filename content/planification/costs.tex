@@ -1,0 +1,71 @@
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|X|c|c|}
+    \hline
+    \textbf{Elemento}                                            & \textbf{Descripción}                                                     & \textbf{Cantidad} & \textbf{Precio} \\
+    \hline
+    LILYGO\textsuperscript{\textregistered} TTGO T-SIM7000G      &                                                                                                                %
+    Placa de control del dispositivo \ac{VIMS}, que aúna la lógica de
+    conexionado y comunicaciones tanto con el vehículo como con el
+    exterior                                                     & 2                                                                        & $44.67$\EUR{} (unidad)                   \\
+    \hline
+    PCB                                                          &                                                                                                                %
+    La PCB define la estructura, componentes y conexionado que tendrá
+    el dispositivo \ac{VIMS}                                     & 5                                                                        & $19.64$\EUR{} (total)                    \\
+    \hline
+    Componentes electrónicos                                     &                                                                                                                %
+    Los componentes electrónicos engloban a todos los elementos que
+    necesita la placa \ac{VIMS} para funcionar. Esto engloba resistencias,
+    reguladores de tensión, LEDs, condensadores, fusibles, clemas de
+    conexionado, circuitos integrados, \dots                     & 2 (conjunto)                                                             & $9.92$\EUR{}                             \\
+    \hline
+    Adaptador conexión \ac{OBD}--II                              &                                                                                                                %
+    El adaptador de \ac{OBD}--II permite obtener directamente conexión
+    con los pines del \ac{OBD}--II individualmente y usarlos en el dispositivo
+    \ac{VIMS}                                                    & 2                                                                        & $1.5$\EUR{}                              \\
+    Tarjeta microSD 1024MB                                       & Almacenamiento provisional de los datos generados cuando no hay conexión & 1                 & $3$\EUR{}            \\
+    \hline
+    \hline
+    \multicolumn{3}{|l|}{\textbf{Total}}                         & $133.82$\EUR{}                                                                                                      \\
+    \hline
+    \multicolumn{3}{|l|}{\textbf{Coste unitario de fabricación}} & $63.018$\EUR{}                                                                                                      \\
+    \hline
+  \end{tabularx}
+  \caption{Tabla completa de presupuestos y costes.}
+  \label{tab:costs}
+\end{table}
+
+En la tabla \ref{tab:costs} se muestran los costes de desarrollo del proyecto
+y, una vez desglosados los elementos que se necesitan, los costes unitarios
+de fabricación.
+
+Una de las ideas principales es la de mantener el dispositivo a un
+precio razonablemente bajo, de manera que sea accesible a todos los usuarios.
+Si se llegase a un acuerdo de producción en masa, se estima que \ac{VIMS}
+se vendería aproximadamente por $45$\EUR{}.
+
+Es importante destacar que el dispositivo \ac{VIMS} requiere de una suscripción
+mensual, que será la fuente de ingresos a largo plazo. La infraestructura
+en la nube junto con la tarjeta SIM van a cargo del usuario. Los costes
+estimados son:
+
+\begin{itemize}
+  \item Para la tarjeta SIM, se ofrece un plan de la compañía ThingsMobile,
+        que ofrece planes de conexión a un precio muy bajo. El plan a
+        ofrecer sería de suscripción mensual a $2$\EUR{} fijos al mes junto con
+        $0.02$\EUR{} por megabyte usado\footnote{Detalles del plan en: \url{https://www.thingsmobile.com/es/business/planes/plan-de-consumo-con-suscripcion}}.
+        Otra oferta disponible sería tarifa plana de $25MB$ a 2\EUR{} al mes.
+  \item Para la infraestructura del servidor, según las características
+        habituales de lo que se pretende desplegar, se estima un coste
+        mensual de unos 10\EUR{}.
+\end{itemize}
+
+Igualmente, esto son costes aproximados y estimaciones. Cuando se defina
+definitivamente la infraestructura del servidor y se estime la cantidad
+de información a transmitir, se podrá hacer un ajuste real. Por ahora,
+el coste estimado sería:
+
+\begin{itemize}
+  \item $65$\EUR{} el dispositivo \ac{VIMS}.
+  \item $12$\EUR{} al mes de suscripción.
+\end{itemize}

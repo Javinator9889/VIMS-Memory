@@ -1,0 +1,50 @@
+El proyecto cuenta con una parte \textit{software} muy importante, ya que está
+conformado por múltiples sistemas que deben cooperar entre sí. Por una parte,
+el desarrollo del \textit{software} del proyecto aborda los siguientes aspectos:
+
+\begin{itemize}
+  \item Desarrollo de la aplicación embebida que irá en el dispositivo enganchado
+        al coche en sí. En dicho dispositivo se programará, entre otros, la planificación
+        del sistema según el análisis de planificabilidad llevado a cabo en el punto
+        \ref{sec:rt-design}, la gestión de los datos y de la información y la transmisión
+        al servidor remoto.
+  \item Desarrollo de la infraestructura en la nube que alojará la lógica de almacenamiento de
+        los datos y de la información generada a partir de ellos para los usuarios de
+        dispositivos \ac{VIMS}.
+  \item Desarrollo de la aplicación web que servirá de pasarela entre los usuarios
+        y sus datos alojados en el servidor en la nube, mediante una interfaz de usuario
+        que facilitará ciertas tareas de gestión y la observación de los datos.
+  \item Desarrollo de la aplicación móvil que permitirá la conexión directa con la
+        placa \ac{VIMS} para su configuración inicial y la visualización de la información
+        en el momento.
+\end{itemize}
+
+El sistema sigue el prototipo de una arquitectura cliente--servidor, con uno o varios
+clientes que se conectan a un servidor en la nube que realiza tareas de gestión de
+la información, entre otros.
+
+Uno de los requisitos principales de la aplicación (que se vio además en el estudio
+del mercado) era que esta fuese accesible, simple y fácil de entender. Mediante la
+definición de tanto la aplicación web como la aplicación móvil se pretende unificar
+el acceso a la información de los usuarios y sus vehículos. Con ambas aplicaciones,
+se busca que, de un vistazo, se tenga acceso a los últimos viajes, estadísticas,
+perfiles de conducción y demás.
+
+Además, la arquitectura del servidor permite generar notificaciones personalizadas
+cuando sucedan ciertos eventos. Por ejemplo, se pueden enviar correos electrónicos
+con información sobre el último viaje, cuánto ha durado el depósito de gasolina, fecha
+recomendada para el siguiente mantenimiento, revisión del estado de los neumáticos,
+etc. De esta manera, se pretende que el usuario no esté directamente pendiente del
+estado mecánico de su vehículo sino que delegue esa tarea en el sistema \ac{VIMS}.
+
+Por su lado, la programación del dispositivo \ac{VIMS} en sí es una parte crítica y
+fundamental en el desarrollo del proyecto. El dispositivo va a estar en un entorno
+no controlado con condiciones cambiantes, sobre todo en lo referente a las comunicaciones.
+Es fundamental que \textit{software} del dispositivo embebido
+sea resiliente y esté diseñado para soportar situaciones adversas en lo referente
+a la transmisión de la información.
+
+Esto se detalla más adelante en los requisitos, y algunas de las características que
+se necesitan tener en el dispositivo en sí son el almacenamiento provisional de los
+datos, la retransmisión de la información en caso de fallo, modos de bajo consumo
+cuando el vehículo no está en marcha, etc.
