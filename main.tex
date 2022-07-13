@@ -58,7 +58,6 @@
     dcolumn, %%
     enumitem,
     lastpage,
-    libertine,
     lipsum,
     longtable,
     lscape,
@@ -77,6 +76,9 @@
     pgfplots,
     abstract,
 }
+%% libertine font for the document body
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[libertine]{newtxmath}
 
 \newcommand{\bigO}[1]{%
   \text{\usefont{OMS}{cmsy}{m}{n}O}\left(#1\right)%
@@ -233,18 +235,14 @@
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 \pagestyle{short}
 
-% \thispagestyle{empty}
 \chapter*{}
-% \begingroup
-% \raggedleft
 \begin{flushright}
-  \textit{A mi familia, la banda,\\
+  \textit{A mi familia, a la banda,\\
     pero sobre todo a mi pareja, \\
     que me ha acompañado en estos momentos \\
     y a Norberto, por su inestimable apoyo y ayuda \\
     (!`ya queda menos para la máquina del tiempo!)}
 \end{flushright}
-% \endgroup
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
